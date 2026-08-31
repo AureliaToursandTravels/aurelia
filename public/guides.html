@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passport & Visa Help Center | Aurelia Tours & Travels</title>
+  <meta name="description" content="Free step-by-step passport and visa guides with official government links. Made for Indian travellers, students and Gulf workers.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/guides.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛂</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brandBlue: '#0b2b5c', brandGold: '#f9a826', brandNavy: '#071a3a' } } }
+    }
+  </script>
+  <style>
+    .gold-text { background: linear-gradient(90deg, #f9a826 0%, #fcd34d 45%, #d97706 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -18px rgba(11,43,92,.4); }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- Nav -->
+  <nav class="bg-brandNavy text-white shadow-lg sticky top-0 z-40 border-b border-brandGold/20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="/" class="flex items-center gap-2">
+        <span class="text-2xl">✈️🚆</span>
+        <span>
+          <span class="text-xl font-extrabold gold-text block leading-tight">Aurelia</span>
+          <span class="text-[9px] tracking-[0.25em] text-slate-300 block uppercase">Tours &amp; Travels</span>
+        </span>
+      </a>
+      <div class="flex items-center gap-4 text-sm font-medium">
+        <a href="/" class="hover:text-brandGold transition">Home</a>
+        <a href="/how-it-works.html" class="hover:text-brandGold transition">How It Works</a>
+        <a href="/guides.html" class="hover:text-brandGold transition text-brandGold font-bold">🛂 Passport &amp; Visa</a>
+        <a href="/contact.html" class="hover:text-brandGold transition">Contact</a>
+        <select id="langSwitcher" class="bg-white/10 border border-white/20 text-white text-xs rounded-lg px-2 py-1.5 outline-none">
+          <option value="en" class="text-slate-800">English</option>
+          <option value="hi" class="text-slate-800">हिंदी</option>
+          <option value="bn" class="text-slate-800">বাংলা</option>
+          <option value="or" class="text-slate-800">ଓଡ଼ିଆ</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="relative overflow-hidden bg-gradient-to-br from-brandNavy via-brandBlue to-[#123a7a] text-white pt-14 pb-20 px-4 text-center">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[640px] h-[640px] bg-brandGold/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto relative">
+      <p class="text-brandGold text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase mb-3">Free Help Center</p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-4">Passport &amp; Visa, <span class="gold-text">Made Simple</span></h1>
+      <p class="text-slate-200 text-base sm:text-lg mb-7">Step-by-step guides and <strong>official government links only</strong> — made for Indian travellers, students, and workers heading to the Gulf. No agents. No middlemen. No fees for help.</p>
+      <div class="flex flex-wrap justify-center gap-3 text-xs font-medium">
+        <a href="#passport" class="border border-brandGold/50 bg-white/5 px-4 py-2 rounded-full hover:bg-brandGold hover:text-slate-900 transition">🛂 Passport Guide</a>
+        <a href="#visa" class="border border-brandGold/50 bg-white/5 px-4 py-2 rounded-full hover:bg-brandGold hover:text-slate-900 transition">🌍 Visa Guide</a>
+        <a href="#student" class="border border-brandGold/50 bg-white/5 px-4 py-2 rounded-full hover:bg-brandGold hover:text-slate-900 transition">🎓 Student Corner</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 w-full flex-grow mb-16">
+
+    <!-- Disclaimer -->
+    <div class="mt-8 bg-amber-50 border border-amber-300 rounded-xl p-4 text-sm text-amber-800 flex gap-3 items-start">
+      <span class="text-xl">⚠️</span>
+      <p><strong>Important:</strong> Aurelia Tours &amp; Travels is a flight &amp; train booking service — we do NOT process passports or visas and we never charge for guidance. Always apply on <strong>official government portals only</strong> (links below). Never pay "guaranteed visa" agents; visa decisions belong to embassies and immigration authorities.</p>
+    </div>
+
+    <!-- ================= PASSPORT ================= -->
+    <section id="passport" class="mt-14 scroll-mt-24">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandBlue to-[#123a7a] text-2xl flex items-center justify-center shadow-lg">🛂</span>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue">Indian Passport — Step-by-Step</h2>
+          <p class="text-sm text-slate-500">Apply online at the official <strong>Passport Seva</strong> portal. Total process: ~7–15 days (Tatkaal: 1–3 days).</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-extrabold gold-text mb-2">1</div>
+          <h3 class="font-bold mb-1">Check your documents</h3>
+          <p class="text-sm text-slate-600">Aadhaar card, birth certificate, address proof (Aadhaar / electricity bill / rent agreement), 1 recent photo, and any name-change proof if applicable.</p>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-extrabold gold-text mb-2">2</div>
+          <h3 class="font-bold mb-1">Create account on Passport Seva</h3>
+          <p class="text-sm text-slate-600">Register at <a href="https://www.passportindia.gov.in/psp" target="_blank" rel="noopener" class="text-blue-600 underline font-semibold">passportindia.gov.in</a> with your email &amp; mobile. Keep them handy for OTPs.</p>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-extrabold gold-text mb-2">3</div>
+          <h3 class="font-bold mb-1">Fill the application &amp; pay</h3>
+          <p class="text-sm text-slate-600">Fill the online form exactly as your documents say (no short names!). Pay the fee online — the current fee is shown on the portal. Choose <strong>Tatkaal</strong> if you need it urgently.</p>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-extrabold gold-text mb-2">4</div>
+          <h3 class="font-bold mb-1">Book your appointment</h3>
+          <p class="text-sm text-slate-600">Book a slot at the nearest <strong>Passport Seva Kendra (PSK)</strong> or Post Office Passport Seva Kendra (POPSK) on the same portal.</p>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-extrabold gold-text mb-2">5</div>
+          <h3 class="font-bold mb-1">Visit PSK with originals</h3>
+          <p class="text-sm text-slate-600">Carry <strong>originals + photocopies</strong> of every document. Biometrics (photo + fingerprints) are taken on the spot. You'll get an acknowledgment receipt.</p>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-extrabold gold-text mb-2">6</div>
+          <h3 class="font-bold mb-1">Police verification &amp; delivery</h3>
+          <p class="text-sm text-slate-600">Police verification happens at your address (be available!). Track status on the portal — passport is delivered by post or SMS pickup.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 bg-brandBlue text-white rounded-2xl p-6 grid md:grid-cols-3 gap-4 items-center">
+        <div>
+          <p class="text-xs uppercase tracking-widest text-brandGold font-bold mb-1">Official links</p>
+          <p class="font-bold text-lg">Apply &amp; track your passport</p>
+        </div>
+        <a href="https://www.passportindia.gov.in/psp" target="_blank" rel="noopener" class="md:text-center bg-brandGold text-slate-900 font-bold px-5 py-3 rounded-xl hover:brightness-95 transition">Open Passport Seva →</a>
+        <p class="text-sm text-slate-300 md:text-right">📞 Helpline: <strong class="text-white">1800-258-1800</strong><br/>Also on the <strong class="text-white">mPassport Seva</strong> mobile app</p>
+      </div>
+
+      <div class="mt-6 grid md:grid-cols-2 gap-4 text-sm">
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4">
+          <h4 class="font-bold text-brandBlue mb-2">💡 For Gulf workers (ECR check)</h4>
+          <p class="text-slate-600">If you belong to the <strong>ECR (Emigration Check Required)</strong> category — usually passports without a 10th-pass mark sheet — you need <strong>emigration clearance</strong> to work in ECR countries like UAE, Saudi, Qatar, Kuwait, Oman &amp; Bahrain. Check your passport's ECR status and clear it before flying. Verify rules on the Ministry of External Affairs / <a href="https://www.mha.gov.in" target="_blank" rel="noopener" class="text-blue-600 underline">mha.gov.in</a>.</p>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4">
+          <h4 class="font-bold text-brandBlue mb-2">🛡️ Avoid these mistakes</h4>
+          <ul class="text-slate-600 list-disc pl-5 space-y-1">
+            <li>Names must match Aadhaar / school records <strong>exactly</strong></li>
+            <li>Never use agents for the form — it's free and easy</li>
+            <li>Don't pay anyone "extra" for faster delivery</li>
+            <li>Old passport + address change → apply for <strong>reissue</strong>, not fresh</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VISA ================= -->
+    <section id="visa" class="mt-16 scroll-mt-24">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandBlue to-[#123a7a] text-2xl flex items-center justify-center shadow-lg">🌍</span>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue">Visa Guide — What You Need</h2>
+          <p class="text-sm text-slate-500">Pick your destination below for a short brief + the official portal. <strong>Emails/visas are issued only by embassies &amp; immigration authorities.</strong></p>
+        </div>
+      </div>
+
+      <!-- Interactive selector -->
+      <div class="mt-6 bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+        <label for="visaSelect" class="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2">I'm going to...</label>
+        <select id="visaSelect" class="w-full sm:w-96 px-4 py-3 border rounded-xl focus:ring-2 focus:ring-brandBlue outline-none bg-white font-semibold">
+          <option value="uae">🇦🇪 UAE (Dubai / Abu Dhabi)</option>
+          <option value="saudi">🇸🇦 Saudi Arabia</option>
+          <option value="qatar">🇶🇦 Qatar</option>
+          <option value="kuwait">🇰🇼 Kuwait</option>
+          <option value="oman">🇴🇲 Oman</option>
+          <option value="bahrain">🇧🇭 Bahrain</option>
+          <option value="uk">🇬🇧 United Kingdom (student)</option>
+          <option value="usa">🇺🇸 United States (student)</option>
+          <option value="canada">🇨🇦 Canada (student)</option>
+          <option value="australia">🇦🇺 Australia (student)</option>
+          <option value="germany">🇩🇪 Germany (student)</option>
+          <option value="ireland">🇮🇪 Ireland (student)</option>
+          <option value="schengen">🇪🇺 Europe / Schengen</option>
+        </select>
+
+        <div id="visaInfo" class="mt-5 bg-slate-50 border border-slate-200 rounded-xl p-5 text-sm"></div>
+      </div>
+
+      <!-- Quick reference cards -->
+      <h3 class="text-lg font-extrabold text-brandBlue mt-10 mb-4">Quick reference — official visa portals</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇦🇪 UAE</p>
+          <p class="text-xs text-slate-500 mb-2">Visit / work visas — Federal Authority (ICP)</p>
+          <a href="https://smartservices.icp.gov.ae" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">smartservices.icp.gov.ae</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇸🇦 Saudi Arabia</p>
+          <p class="text-xs text-slate-500 mb-2">eVisa platform &amp; visit visas</p>
+          <a href="https://visa.mofa.gov.sa" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">visa.mofa.gov.sa</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇶🇦 Qatar</p>
+          <p class="text-xs text-slate-500 mb-2">Ministry of Interior services</p>
+          <a href="https://www.moi.gov.qa" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">moi.gov.qa</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇰🇼 Kuwait</p>
+          <p class="text-xs text-slate-500 mb-2">Government services portal</p>
+          <a href="https://www.e.gov.kw" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">e.gov.kw</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇴🇲 Oman</p>
+          <p class="text-xs text-slate-500 mb-2">Royal Oman Police e-visa</p>
+          <a href="https://evisa.rop.gov.om" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">evisa.rop.gov.om</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇧🇭 Bahrain</p>
+          <p class="text-xs text-slate-500 mb-2">Bahrain eVisa</p>
+          <a href="https://www.evisa.gov.bh" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">evisa.gov.bh</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇬🇧 UK — Student visa</p>
+          <p class="text-xs text-slate-500 mb-2">Official gov.uk guide &amp; application</p>
+          <a href="https://www.gov.uk/student-visa" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">gov.uk/student-visa</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇺🇸 USA — Student (F-1)</p>
+          <p class="text-xs text-slate-500 mb-2">U.S. State Department visas</p>
+          <a href="https://travel.state.gov" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">travel.state.gov</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇨🇦 Canada — Study permit</p>
+          <p class="text-xs text-slate-500 mb-2">Immigration, Refugees &amp; Citizenship</p>
+          <a href="https://www.canada.ca" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">canada.ca</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇦🇺 Australia — Student (500)</p>
+          <p class="text-xs text-slate-500 mb-2">Home Affairs immigration</p>
+          <a href="https://immi.homeaffairs.gov.au" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">immi.homeaffairs.gov.au</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇩🇪 Germany — Student</p>
+          <p class="text-xs text-slate-500 mb-2">Federal Foreign Office</p>
+          <a href="https://www.auswaertiges-amt.de" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">auswaertiges-amt.de</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇪🇺 Europe / Schengen</p>
+          <p class="text-xs text-slate-500 mb-2">Visa application centres</p>
+          <a href="https://www.vfsglobal.com" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">vfsglobal.com</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STUDENTS ================= -->
+    <section id="student" class="mt-16 scroll-mt-24">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandBlue to-[#123a7a] text-2xl flex items-center justify-center shadow-lg">🎓</span>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue">Student Corner — Your Roadmap</h2>
+          <p class="text-sm text-slate-500">From offer letter to boarding pass — the honest, complete path.</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 mt-6">
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-extrabold gold-text mb-2">1</div>
+          <h3 class="font-bold mb-1">Offer letter first</h3>
+          <p class="text-sm text-slate-600">Get your admission &amp; offer letter from the university/college. This is the foundation of every student visa.</p>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-extrabold gold-text mb-2">2</div>
+          <h3 class="font-bold mb-1">Money &amp; language proof</h3>
+          <p class="text-sm text-slate-600">Show funds (bank statements, education loan, sponsors) and language scores if the university requires them (IELTS/TOEFL/PTE).</p>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-extrabold gold-text mb-2">3</div>
+          <h3 class="font-bold mb-1">Apply on the official portal</h3>
+          <p class="text-sm text-slate-600">Apply for your student visa only on the official portal of your country (see links above). Biometrics usually at a visa centre in your city.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 grid md:grid-cols-2 gap-4 text-sm">
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4">
+          <h4 class="font-bold text-brandBlue mb-2">✈️ After the visa — fly smart</h4>
+          <p class="text-slate-600">Book a <strong>one-way student fare</strong> with extra baggage allowance. Send us your route and we'll find the student-rate tickets for your intake date — usually before you even start packing.</p>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4">
+          <h4 class="font-bold text-brandBlue mb-2">🎒 Pre-departure checklist</h4>
+          <ul class="text-slate-600 list-disc pl-5 space-y-1">
+            <li>Health / travel insurance for the first weeks</li>
+            <li>Forex + international debit/credit card</li>
+            <li>Certificates: passport, visa, offer letter, IELTS</li>
+            <li>Photos, medicines with prescriptions, adapters</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="mt-10 bg-gradient-to-r from-brandBlue to-brandNavy text-white rounded-2xl p-8 text-center shadow-xl border border-brandGold/20">
+        <h3 class="text-2xl font-extrabold mb-2">Documents ready? Let's get you there. ✈️</h3>
+        <p class="text-slate-300 text-sm mb-5">Get your personal quote for the route — flights, trains, group bookings, student &amp; Gulf fares.</p>
+        <a href="/" class="inline-block bg-gradient-to-r from-brandGold to-amber-500 text-slate-900 font-bold px-8 py-3.5 rounded-xl hover:brightness-95 transition text-lg shadow-lg">🔥 Request My Best Quote</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brandNavy text-slate-400 py-6 text-center text-xs border-t border-brandGold/20">
+    <div class="max-w-6xl mx-auto px-4 space-y-1">
+      <p>&copy; 2026 Aurelia Tours &amp; Travels. Contact: +91 9323003681 | workkhalid1509@gmail.com</p>
+      <p><a href="/" class="hover:text-brandGold transition">Home</a> · <a href="/how-it-works.html" class="hover:text-brandGold transition">How It Works</a> · <a href="/guides.html" class="hover:text-brandGold transition">Passport &amp; Visa</a> · <a href="/contact.html" class="hover:text-brandGold transition">Contact</a></p>
+      <p class="text-slate-500 pt-1">This page links to official government portals only. Aurelia Tours &amp; Travels does not process passports or visas.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ---------- Visa selector ----------
+    const VISA_DATA = {
+      uae: { title: '🇦🇪 UAE (Dubai / Abu Dhabi / Sharjah)', type: 'Work visa (employer-sponsored) · Visit visa · Golden visa', docs: 'Passport (6+ months validity), job offer / sponsor, photo, medical test in UAE', link: 'https://smartservices.icp.gov.ae', linkLabel: 'smartservices.icp.gov.ae (official ICP)', note: 'Work visas are sponsored by your employer. Never pay anyone who "guarantees" a UAE visa. Check ECR status on your passport before flying.' },
+      saudi: { title: '🇸🇦 Saudi Arabia', type: 'Work visa (sponsored) · Visit visa · Umrah/Hajj permit', docs: 'Passport, employer sponsorship (Absher/Enjaz), medical report, biometrics', link: 'https://visa.mofa.gov.sa', linkLabel: 'visa.mofa.gov.sa (official visa platform)', note: 'Saudi work visas require employer sponsorship. Women travellers have additional guardian rules — check the official portal.' },
+      qatar: { title: '🇶🇦 Qatar', type: 'Work visa (sponsored) · Visit visa', docs: 'Passport, sponsor letter, employment contract, medical test', link: 'https://www.moi.gov.qa', linkLabel: 'moi.gov.qa (Ministry of Interior)', note: 'Visa is arranged by your Qatari employer/sponsor through the MOI. For visitors, Hayya or sponsor-arranged visas apply.' },
+      kuwait: { title: '🇰🇼 Kuwait', type: 'Work visa (sponsored) · Visit visa', docs: 'Passport, sponsor, approved visa by Ministry of Interior', link: 'https://www.e.gov.kw', linkLabel: 'e.gov.kw (government portal)', note: 'Kuwait work visas are employer-driven. Be careful of agents asking for large deposits.' },
+      oman: { title: '🇴🇲 Oman', type: 'Work visa (sponsored) · Tourist eVisa', docs: 'Passport, sponsor for work; eVisa for tourism online', link: 'https://evisa.rop.gov.om', linkLabel: 'evisa.rop.gov.om (Royal Oman Police)', note: 'Tourist e-visa is fully online. Work visas require an Omani sponsor.' },
+      bahrain: { title: '🇧🇭 Bahrain', type: 'Work visa (sponsored) · Tourist eVisa', docs: 'Passport, sponsor for work; eVisa for tourism', link: 'https://www.evisa.gov.bh', linkLabel: 'evisa.gov.bh (Bahrain eVisa)', note: 'Tourist e-visa is online and usually quick. Work visas are employer-sponsored.' },
+      uk: { title: '🇬🇧 United Kingdom — Student visa', type: 'Student visa (Tier 4 / Points-based)', docs: 'CAS letter from university, funds proof (28 days), passport, English test, TB test (if applicable)', link: 'https://www.gov.uk/student-visa', linkLabel: 'gov.uk/student-visa (official)', note: 'Apply up to 6 months before travel. The official gov.uk site has a document checker — use it.' },
+      usa: { title: '🇺🇸 United States — F-1 Student visa', type: 'F-1 Student visa', docs: 'I-20 form from college, SEVIS fee receipt, DS-160 form, visa interview at US Embassy', link: 'https://travel.state.gov', linkLabel: 'travel.state.gov (State Department)', note: 'You need an I-20 first, then the DS-160 and an embassy interview. F-1 slots fill fast — book early.' },
+      canada: { title: '🇨🇦 Canada — Study permit', type: 'Study permit (IRCC)', docs: 'Letter of acceptance, proof of funds (GIC), passport, biometrics, medical if required', link: 'https://www.canada.ca', linkLabel: 'canada.ca (IRCC official)', note: 'Study permits are handled by IRCC. A GIC (Guaranteed Investment Certificate) is common proof of funds.' },
+      australia: { title: '🇦🇺 Australia — Student visa (Subclass 500)', type: 'Student visa (500)', docs: 'Confirmation of Enrolment (CoE), OSHC health cover, funds, English test, biometrics', link: 'https://immi.homeaffairs.gov.au', linkLabel: 'immi.homeaffairs.gov.au (official)', note: 'You need a CoE from your institution before applying. Genuine Student (GS) requirements apply.' },
+      germany: { title: '🇩🇪 Germany — Student visa', type: 'National visa for study', docs: 'Admission letter, blocked account (Sperrkonto), health insurance, APS certificate for some countries', link: 'https://www.auswaertiges-amt.de', linkLabel: 'auswaertiges-amt.de (Federal Foreign Office)', note: 'Germany requires a blocked account with ~€11,904/year as proof of funds. Apply at the German embassy/consulate in India.' },
+      ireland: { title: '🇮🇪 Ireland — Study visa', type: 'Study visa (long stay D)', docs: 'Letter of acceptance, funds proof, tuition fee receipt, passport, biometrics', link: 'https://www.irishimmigration.ie', linkLabel: 'irishimmigration.ie (official)', note: 'Apply at the Irish embassy in New Delhi. Keep all receipts — border officers ask for them.' },
+      schengen: { title: '🇪🇺 Europe / Schengen (France, Italy, Germany, Netherlands...)', type: 'Schengen short-stay visa (Type C)', docs: 'Travel insurance (30,000€+), hotel bookings, flight itinerary, bank statements, passport', link: 'https://www.vfsglobal.com', linkLabel: 'vfsglobal.com (visa application centres)', note: 'Apply to the embassy of your MAIN country of stay. Appointments book out weeks ahead — plan early. VFS/TLS centres handle paperwork, embassies decide.' }
+    };
+    function renderVisa(key) {
+      const d = VISA_DATA[key];
+      if (!d) return;
+      document.getElementById('visaInfo').innerHTML = `
+        <div class="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h4 class="text-base font-extrabold text-slate-900">${d.title}</h4>
+            <p class="text-xs text-slate-500 mt-0.5"><strong>Visa type:</strong> ${d.type}</p>
+          </div>
+          <span class="text-[10px] uppercase tracking-widest bg-brandBlue text-brandGold font-bold px-2.5 py-1 rounded-full">Official guide</span>
+        </div>
+        <p class="mt-3 text-slate-600"><strong>What you'll need:</strong> ${d.docs}</p>
+        <p class="mt-2 text-slate-600">${d.note}</p>
+        <a href="${d.link}" target="_blank" rel="noopener" class="mt-4 inline-block bg-brandBlue text-white font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition">Apply → ${d.linkLabel}</a>
+      `;
+    }
+    const sel = document.getElementById('visaSelect');
+    sel.addEventListener('change', () => renderVisa(sel.value));
+    renderVisa(sel.value);
+  </script>
+  <script src="/js/i18n.js"></script>
+</body>
+</html>

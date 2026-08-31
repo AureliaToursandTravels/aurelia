@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Environment secrets - NEVER upload .env to GitHub
+.env
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+preview/

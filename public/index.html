@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia Tours & Travels – Cheap Flight & Train Ticket Quotes | Book Smarter</title>
+  <meta name="description" content="Aurelia Tours & Travels gets you the best-priced flight and train ticket quotes. Submit your route and get a personal quote on WhatsApp & Email. Save up to 40%.">
+  <meta name="keywords" content="Aurelia, cheap flight tickets, train ticket booking, flight broker, cheapest flight quotes, travel broker India">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aurelia Tours & Travels">
+  <meta property="og:title" content="Aurelia Tours & Travels – Cheaper Flight & Train Ticket Quotes">
+  <meta property="og:description" content="Personal broker quotes that beat any price you'll find online. Request yours today.">
+  <meta property="og:url" content="https://YOUR-DOMAIN.com/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Aurelia Tours & Travels",
+    "description": "Travel broker offering cheaper flight and train ticket quotes.",
+    "url": "https://YOUR-DOMAIN.com/",
+    "telephone": "+919323003681",
+    "email": "workkhalid1509@gmail.com",
+    "priceRange": "₹₹",
+    "areaServed": "IN"
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#0b2b5c',
+            brandGold: '#f9a826',
+            brandNavy: '#071a3a'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .confetti-piece { position: fixed; top: -12px; z-index: 200; border-radius: 2px; animation: confettiFall linear forwards; }
+    @keyframes confettiFall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+    .fade-in { animation: fadeIn .5s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .gold-text { background: linear-gradient(90deg, #f9a826 0%, #fcd34d 45%, #d97706 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .cat-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .cat-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -20px rgba(11,43,92,.45); border-color: #f9a826; }
+    .flash { animation: flashRing 1.2s ease; }
+    @keyframes flashRing { 0%,100% { box-shadow: 0 0 0 0 rgba(249,168,38,0); } 30% { box-shadow: 0 0 0 6px rgba(249,168,38,.55); } }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- Nav -->
+  <nav class="bg-brandNavy text-white shadow-lg sticky top-0 z-40 border-b border-brandGold/20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="/" class="flex items-center gap-2">
+        <span class="text-2xl">✈️🚆</span>
+        <span>
+          <span class="text-xl font-extrabold gold-text block leading-tight">Aurelia</span>
+          <span class="text-[9px] tracking-[0.25em] text-slate-300 block uppercase">Tours &amp; Travels</span>
+        </span>
+      </a>
+      <div class="flex items-center gap-4 text-sm font-medium">
+        <a href="/" class="hover:text-brandGold transition">Home</a>
+        <a href="/how-it-works.html" class="hover:text-brandGold transition">How It Works</a>
+        <a href="/guides.html" class="hover:text-brandGold transition text-brandGold font-bold">🛂 Passport &amp; Visa</a>
+        <a href="/contact.html" class="hover:text-brandGold transition">Contact</a>
+        <select id="langSwitcher" class="bg-white/10 border border-white/20 text-white text-xs rounded-lg px-2 py-1.5 outline-none cursor-pointer">
+          <option value="en" class="text-slate-800">English</option>
+          <option value="hi" class="text-slate-800">हिंदी</option>
+          <option value="bn" class="text-slate-800">বাংলা</option>
+          <option value="or" class="text-slate-800">ଓଡ଼ିଆ</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="relative overflow-hidden bg-gradient-to-br from-brandNavy via-brandBlue to-[#123a7a] text-white pt-14 pb-24 px-4 text-center">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[640px] h-[640px] bg-brandGold/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute inset-0 opacity-10 text-6xl select-none pointer-events-none" style="transform: rotate(-8deg) scale(1.4);">✈️ 🚆 ✈️ 🚆 ✈️ 🚆</div>
+    <div class="max-w-3xl mx-auto relative">
+      <p class="text-brandGold text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase mb-3">Aurelia Tours &amp; Travels</p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-4"><span id="heroT1">Fly &amp; Ride Smarter —</span> <span id="heroT2" class="gold-text">Get the Cheapest Quotes</span></h1>
+      <p id="heroSub" class="text-slate-200 text-base sm:text-lg mb-7">Hand-picked fares from exclusive channels, sourced personally by our brokers — cheaper than anything you'll find online.</p>
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs sm:text-sm font-medium">
+        <span class="hero-badge flex items-center gap-1.5 border border-brandGold/40 bg-white/5 backdrop-blur px-3 py-1.5 rounded-full">✓ No Hidden Fees</span>
+        <span class="hero-badge flex items-center gap-1.5 border border-brandGold/40 bg-white/5 backdrop-blur px-3 py-1.5 rounded-full">✓ Save up to 40%</span>
+        <span class="hero-badge flex items-center gap-1.5 border border-brandGold/40 bg-white/5 backdrop-blur px-3 py-1.5 rounded-full">✓ Personal Expert Quotes</span>
+        <span class="hero-badge flex items-center gap-1.5 border border-brandGold/40 bg-white/5 backdrop-blur px-3 py-1.5 rounded-full">✓ 24×7 Support on WhatsApp</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main booking area -->
+  <main class="max-w-6xl mx-auto -mt-14 px-4 w-full flex-grow mb-16">
+
+    <div class="grid lg:grid-cols-3 gap-6 items-start">
+
+      <!-- ============ FORM (left, 2 cols) ============ -->
+      <div class="lg:col-span-2 bg-white rounded-2xl border border-[#e6d9b8] overflow-hidden shadow-[0_24px_70px_-20px_rgba(11,43,92,0.3)]">
+
+        <!-- Step bar -->
+        <div class="bg-gradient-to-r from-slate-50 to-white border-b border-[#e6d9b8] px-6 py-3 flex items-center gap-3 text-xs font-semibold text-slate-500">
+          <span class="stepbar-item flex items-center gap-1.5"><span class="w-5 h-5 rounded-full bg-brandBlue text-white flex items-center justify-center text-[10px]">1</span><span class="stepbar-txt">Trip Details</span></span>
+          <span class="text-slate-300">───</span>
+          <span class="stepbar-item flex items-center gap-1.5"><span class="w-5 h-5 rounded-full bg-brandGold text-slate-900 flex items-center justify-center text-[10px]">2</span><span class="stepbar-txt">Preferences</span></span>
+          <span class="text-slate-300">───</span>
+          <span class="stepbar-item flex items-center gap-1.5"><span class="w-5 h-5 rounded-full bg-brandBlue text-white flex items-center justify-center text-[10px]">3</span><span class="stepbar-txt">Contact</span></span>
+          <span class="ml-auto hidden sm:inline text-slate-400 font-normal">No payment needed for quotes</span>
+        </div>
+
+        <form id="bookingForm" class="p-6 space-y-7" novalidate>
+
+          <!-- 1. Travel type -->
+          <section>
+            <h2 class="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide"><span class="w-6 h-[3px] bg-gradient-to-r from-brandGold to-transparent rounded-full inline-block align-middle mr-2"></span>1 · What are you booking?</h2>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" id="cardFlight" class="travel-card border-2 rounded-xl p-4 text-left transition flex items-center gap-3">
+                <span class="text-3xl">✈️</span>
+                <span>
+                  <span class="block font-bold">Flight</span>
+                  <span class="block text-xs text-slate-500">Domestic &amp; International</span>
+                </span>
+              </button>
+              <button type="button" id="cardTrain" class="travel-card border-2 rounded-xl p-4 text-left transition flex items-center gap-3">
+                <span class="text-3xl">🚆</span>
+                <span>
+                  <span class="block font-bold">Train</span>
+                  <span class="block text-xs text-slate-500">All classes &amp; routes</span>
+                </span>
+              </button>
+            </div>
+            <div id="flightSubWrap" class="mt-3">
+              <p class="text-xs font-semibold text-slate-600 mb-1.5">Flight type</p>
+              <div class="flex gap-2">
+                <button type="button" id="subDomestic" class="sub-pill flex-1 py-2 rounded-lg text-sm font-semibold border-2 transition">🇮🇳 Domestic</button>
+                <button type="button" id="subInternational" class="sub-pill flex-1 py-2 rounded-lg text-sm font-semibold border-2 transition">🌏 International</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. Trip type -->
+          <section>
+            <h2 class="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide"><span class="w-6 h-[3px] bg-gradient-to-r from-brandGold to-transparent rounded-full inline-block align-middle mr-2"></span>2 · Trip type</h2>
+            <div class="flex gap-2">
+              <button type="button" id="tripOneway" class="trip-pill flex-1 py-2.5 rounded-lg text-sm font-bold border-2 transition">One Way</button>
+              <button type="button" id="tripRoundtrip" class="trip-pill flex-1 py-2.5 rounded-lg text-sm font-bold border-2 transition">Round Trip ⇄</button>
+            </div>
+          </section>
+
+          <!-- 3. Route -->
+          <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="origin">Origin City / Station <span class="text-red-500">*</span></label>
+              <input type="text" id="origin" list="cityList" required placeholder="e.g. Mumbai (BOM)" class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+              <p class="field-error hidden text-xs text-red-500 mt-1">Please enter your origin city.</p>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="destination">Destination City / Station <span class="text-red-500">*</span></label>
+              <input type="text" id="destination" list="cityList" required placeholder="e.g. Delhi (DEL)" class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+              <p class="field-error hidden text-xs text-red-500 mt-1">Please enter your destination city.</p>
+            </div>
+            <datalist id="cityList">
+              <option value="Mumbai (BOM)"></option><option value="Delhi (DEL)"></option><option value="Bengaluru (BLR)"></option>
+              <option value="Chennai (MAA)"></option><option value="Kolkata (CCU)"></option><option value="Hyderabad (HYD)"></option>
+              <option value="Pune (PNQ)"></option><option value="Ahmedabad (AMD)"></option><option value="Goa (GOI)"></option>
+              <option value="Jaipur (JAI)"></option><option value="Kochi (COK)"></option><option value="Lucknow (LKO)"></option>
+              <option value="Guwahati (GAU)"></option><option value="Patna (PAT)"></option><option value="Bhubaneswar (BBI)"></option>
+              <option value="Indore (IDR)"></option><option value="Chandigarh (IXC)"></option><option value="Nagpur (NAG)"></option>
+              <option value="Varanasi (VNS)"></option><option value="Thiruvananthapuram (TRV)"></option><option value="Amritsar (ATQ)"></option>
+              <option value="Surat (STV)"></option><option value="Dehradun (DED)"></option><option value="Srinagar (SXR)"></option>
+              <option value="Raipur (RPR)"></option><option value="Bhopal (BHO)"></option><option value="Coimbatore (CJB)"></option>
+              <option value="Mangaluru (IXE)"></option><option value="Vijayawada (VGA)"></option><option value="Visakhapatnam (VTZ)"></option>
+              <option value="Jodhpur (JDH)"></option><option value="Udaipur (UDR)"></option>
+            </datalist>
+          </section>
+
+          <!-- 4. Dates -->
+          <section>
+            <h2 class="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide"><span class="w-6 h-[3px] bg-gradient-to-r from-brandGold to-transparent rounded-full inline-block align-middle mr-2"></span>3 · Dates</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="departureDate">Departure Date <span class="text-red-500">*</span></label>
+                <input type="date" id="departureDate" required class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+                <p class="field-error hidden text-xs text-red-500 mt-1">Please choose a departure date.</p>
+              </div>
+              <div id="returnWrap" class="hidden">
+                <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="returnDate">Return Date</label>
+                <input type="date" id="returnDate" class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+              </div>
+            </div>
+            <label class="mt-3 flex items-center gap-2.5 bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-lg px-4 py-2.5 cursor-pointer hover:border-amber-300 transition">
+              <input type="checkbox" id="flexibleDates" class="w-4 h-4 accent-amber-500">
+              <span class="text-sm"><strong>My dates are flexible</strong> <span class="text-amber-700">(±2 days)</span> — unlocks cheaper rates</span>
+            </label>
+          </section>
+
+          <!-- 5. Preferred time -->
+          <section>
+            <h2 class="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide"><span class="w-6 h-[3px] bg-gradient-to-r from-brandGold to-transparent rounded-full inline-block align-middle mr-2"></span>4 · Preferred departure time <span class="font-normal text-slate-400 normal-case">(optional)</span></h2>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" data-value="Morning (6am-12pm)" class="time-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🌅 Morning</button>
+              <button type="button" data-value="Afternoon (12pm-5pm)" class="time-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">☀️ Afternoon</button>
+              <button type="button" data-value="Evening (5pm-9pm)" class="time-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🌇 Evening</button>
+              <button type="button" data-value="Night (9pm-6am)" class="time-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🌙 Night</button>
+            </div>
+          </section>
+
+          <!-- 6. Pax + class + number -->
+          <section class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Passengers</label>
+              <div class="flex items-center border rounded-lg overflow-hidden">
+                <button type="button" id="paxMinus" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 font-bold text-lg transition">−</button>
+                <span id="paxCount" class="flex-1 text-center font-bold">1</span>
+                <button type="button" id="paxPlus" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 font-bold text-lg transition">+</button>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Preferred Class</label>
+              <select id="travelClass" class="w-full px-3 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none bg-white">
+                <option value="Economy">Economy</option>
+                <option value="Premium Economy">Premium Economy</option>
+                <option value="Business">Business</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Flight / Train No. <span class="font-normal text-slate-400 normal-case">(optional)</span></label>
+              <input type="text" id="travelNumber" placeholder="e.g. 6E-123 / 12952" class="w-full px-3 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+            </div>
+          </section>
+
+          <!-- 7a. FLIGHT preferences -->
+          <section id="flightPrefs">
+            <h2 class="text-sm font-bold text-slate-700 mb-1 uppercase tracking-wide"><span class="w-6 h-[3px] bg-gradient-to-r from-brandGold to-transparent rounded-full inline-block align-middle mr-2"></span>5 · Flight preferences</h2>
+            <p class="text-xs text-slate-400 mb-3">More detail = better match. All optional.</p>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Stops</label>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-value="Non-stop only" class="stop-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">✈️ Non-stop only</button>
+                  <button type="button" data-value="1 stop OK" class="stop-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🔁 1 stop OK</button>
+                  <button type="button" data-value="Any stops" class="stop-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🌐 Any stops</button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Baggage</label>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-value="Hand luggage only" class="baggage-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🎒 Hand only</button>
+                  <button type="button" data-value="15kg" class="baggage-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">15 kg</button>
+                  <button type="button" data-value="20kg" class="baggage-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">20 kg</button>
+                  <button type="button" data-value="23kg" class="baggage-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">23 kg</button>
+                  <button type="button" data-value="Not sure" class="baggage-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🤔 Not sure</button>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-600 mb-1.5">Seat preference</label>
+                  <div class="flex flex-wrap gap-2">
+                    <button type="button" data-value="Window seat" class="seat-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🪟 Window</button>
+                    <button type="button" data-value="Aisle seat" class="seat-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🚪 Aisle</button>
+                    <button type="button" data-value="Any" class="seat-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">Any</button>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-600 mb-1.5" for="airlinePref">Airline preference</label>
+                  <select id="airlinePref" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none bg-white text-sm">
+                    <option value="">No preference</option>
+                    <option>IndiGo</option><option>Air India</option><option>Vistara</option><option>SpiceJet</option>
+                    <option>Akasa Air</option><option>Emirates</option><option>Qatar Airways</option><option>Etihad</option>
+                    <option>Singapore Airlines</option><option>Air Arabia</option><option>Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7b. TRAIN preferences -->
+          <section id="trainPrefs" class="hidden">
+            <h2 class="text-sm font-bold text-slate-700 mb-1 uppercase tracking-wide"><span class="w-6 h-[3px] bg-gradient-to-r from-brandGold to-transparent rounded-full inline-block align-middle mr-2"></span>5 · Train preferences</h2>
+            <p class="text-xs text-slate-400 mb-3">More detail = better match. All optional.</p>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Train type</label>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-value="Express" class="traintype-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🚆 Express</button>
+                  <button type="button" data-value="Rajdhani" class="traintype-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🛤️ Rajdhani</button>
+                  <button type="button" data-value="Shatabdi" class="traintype-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">⚡ Shatabdi</button>
+                  <button type="button" data-value="Vande Bharat" class="traintype-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🇮🇳 Vande Bharat</button>
+                  <button type="button" data-value="Superfast" class="traintype-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">💨 Superfast</button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Berth preference</label>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-value="Lower berth" class="berth-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🛏️ Lower</button>
+                  <button type="button" data-value="Middle berth" class="berth-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🛏️ Middle</button>
+                  <button type="button" data-value="Upper berth" class="berth-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🛏️ Upper</button>
+                  <button type="button" data-value="Side lower" class="berth-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">↔️ Side lower</button>
+                  <button type="button" data-value="Side upper" class="berth-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">↔️ Side upper</button>
+                  <button type="button" data-value="Window seat" class="berth-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🪟 Window</button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Quota</label>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-value="General" class="quota-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🎟️ General</button>
+                  <button type="button" data-value="Tatkal" class="quota-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">⚡ Tatkal</button>
+                  <button type="button" data-value="Premium Tatkal" class="quota-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">💎 Premium Tatkal</button>
+                  <button type="button" data-value="Ladies" class="quota-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">👩 Ladies</button>
+                  <button type="button" data-value="Senior Citizen" class="quota-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🧓 Senior Citizen</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7c. Shared preferences (meals + reason) -->
+          <section>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Meals</label>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-value="Veg meal" class="meal-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🥗 Veg</button>
+                  <button type="button" data-value="Non-veg meal" class="meal-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🍗 Non-Veg</button>
+                  <button type="button" data-value="Jain meal" class="meal-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🥬 Jain</button>
+                  <button type="button" data-value="No meal needed" class="meal-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🚫 No meal</button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Reason for travel</label>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-value="Business" class="reason-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">💼 Business</button>
+                  <button type="button" data-value="Leisure / Holiday" class="reason-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🌴 Leisure</button>
+                  <button type="button" data-value="Family trip" class="reason-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">👨‍👩‍👧 Family</button>
+                  <button type="button" data-value="Emergency" class="reason-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🚨 Emergency</button>
+                  <button type="button" data-value="Work / Employment abroad" class="reason-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">💪 Work abroad</button>
+                  <button type="button" data-value="Studies abroad" class="reason-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🎓 Studies</button>
+                  <button type="button" data-value="Other" class="reason-chip border-2 rounded-full px-4 py-2 text-sm font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">Other</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. Budget + urgency + payment -->
+          <section>
+            <h2 class="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide"><span class="w-6 h-[3px] bg-gradient-to-r from-brandGold to-transparent rounded-full inline-block align-middle mr-2"></span>6 · Budget &amp; urgency <span class="font-normal text-slate-400 normal-case">(optional)</span></h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1" for="budget">Budget per person (₹)</label>
+                <input type="number" id="budget" min="0" placeholder="e.g. 8000" class="w-full px-3 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">How urgent?</label>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-value="Not urgent" class="urgency-chip border-2 rounded-full px-3 py-2 text-xs font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">😌 Not urgent</button>
+                  <button type="button" data-value="Within a week" class="urgency-chip border-2 rounded-full px-3 py-2 text-xs font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🗓️ Within a week</button>
+                  <button type="button" data-value="ASAP" class="urgency-chip border-2 rounded-full px-3 py-2 text-xs font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">⚡ ASAP</button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Payment preference</label>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-value="UPI" class="pay-chip border-2 rounded-full px-3 py-2 text-xs font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">📱 UPI</button>
+                  <button type="button" data-value="Card" class="pay-chip border-2 rounded-full px-3 py-2 text-xs font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">💳 Card</button>
+                  <button type="button" data-value="NetBanking" class="pay-chip border-2 rounded-full px-3 py-2 text-xs font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🏦 NetBanking</button>
+                  <button type="button" data-value="Cash" class="pay-chip border-2 rounded-full px-3 py-2 text-xs font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">💵 Cash</button>
+                  <button type="button" data-value="Will decide later" class="pay-chip border-2 rounded-full px-3 py-2 text-xs font-semibold border-slate-200 bg-white text-slate-600 hover:border-brandBlue hover:text-brandBlue transition">🤷 Later</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <hr class="border-[#e6d9b8]">
+
+          <!-- 9. Contact details -->
+          <section>
+            <h2 class="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide"><span class="w-6 h-[3px] bg-gradient-to-r from-brandGold to-transparent rounded-full inline-block align-middle mr-2"></span>7 · Your contact details</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="userName">Full Name <span class="text-red-500">*</span></label>
+                <input type="text" id="userName" required placeholder="John Doe" class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+                <p class="field-error hidden text-xs text-red-500 mt-1">Please enter your name.</p>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="userEmail">Email Address <span class="text-red-500">*</span></label>
+                <input type="email" id="userEmail" required placeholder="john@example.com" class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+                <p class="field-error hidden text-xs text-red-500 mt-1">Please enter a valid email.</p>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="userPhone">WhatsApp / Phone <span class="text-red-500">*</span></label>
+                <input type="tel" id="userPhone" required placeholder="+91 9876543210" class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+                <p class="field-error hidden text-xs text-red-500 mt-1">Please enter a valid phone number.</p>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="altPhone">Alternate Number <span class="font-normal text-slate-400 normal-case">(optional)</span></label>
+                <input type="tel" id="altPhone" placeholder="+91 ..." class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">How should we contact you?</label>
+                <div class="flex gap-2">
+                  <button type="button" data-value="WhatsApp" class="contact-chip flex-1 py-2.5 rounded-lg text-sm font-bold border-2 transition">💬 WhatsApp</button>
+                  <button type="button" data-value="Call" class="contact-chip flex-1 py-2.5 rounded-lg text-sm font-bold border-2 transition">📞 Call</button>
+                  <button type="button" data-value="Email" class="contact-chip flex-1 py-2.5 rounded-lg text-sm font-bold border-2 transition">📧 Email</button>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="specialRequests">Special requests <span class="font-normal text-slate-400 normal-case">(optional — anything else we should know)</span></label>
+              <textarea id="specialRequests" rows="2" placeholder="e.g. Wheelchair assistance, connecting from another city, group booking note, child seat..." class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none text-sm"></textarea>
+            </div>
+            <div class="mt-4">
+              <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="hearAbout">How did you hear about us?</label>
+              <select id="hearAbout" class="w-full sm:w-72 px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none bg-white text-sm">
+                <option value="">Select...</option>
+                <option value="Google Search">Google Search</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Facebook">Facebook</option>
+                <option value="WhatsApp Group">WhatsApp Group</option>
+                <option value="Friends & Family">Friends &amp; Family</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </section>
+
+          <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-brandGold via-amber-400 to-amber-600 text-slate-900 font-bold py-3.5 rounded-xl hover:brightness-95 active:scale-[0.99] transition shadow-md text-lg">
+            🔥 Request My Best Quote
+          </button>
+          <p class="text-center text-xs text-slate-400">Free service · No advance payment · Response within 30 min on WhatsApp</p>
+        </form>
+
+        <!-- Success panel -->
+        <div id="successPanel" class="hidden p-8 text-center fade-in">
+          <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4 animate-bounce">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3 class="text-2xl font-extrabold text-slate-800">Request received! 🎉</h3>
+          <p class="text-slate-500 text-sm mt-2 mb-6">Our team is finding the best rate. Here's what we received:</p>
+          <div id="successRecap" class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-left text-sm space-y-2 max-w-md mx-auto"></div>
+          <button id="newRequestBtn" class="mt-6 bg-brandBlue text-white font-bold px-6 py-3 rounded-xl hover:opacity-90 transition">+ Submit Another Request</button>
+        </div>
+
+      </div>
+
+      <!-- ============ LIVE SUMMARY (right col) ============ -->
+      <aside class="lg:sticky lg:top-20 bg-gradient-to-b from-brandBlue to-brandNavy text-white rounded-2xl shadow-2xl p-6 order-first lg:order-none border border-brandGold/20">
+        <h3 class="font-bold text-lg mb-1">📋 Live Request Summary</h3>
+        <p class="text-xs text-slate-300 mb-3">Updates automatically as you type</p>
+        <div class="mb-4">
+          <div class="flex justify-between text-[10px] text-slate-300 mb-1"><span>Request completeness</span><span id="progPct" class="font-bold text-brandGold">0%</span></div>
+          <div class="h-1.5 bg-white/15 rounded-full overflow-hidden"><div id="progBar" class="h-full bg-gradient-to-r from-brandGold to-amber-500 rounded-full transition-all duration-500" style="width:0%"></div></div>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between gap-3 border-b border-white/10 pb-2"><span class="text-slate-300">Type</span><span id="sumType" class="font-semibold text-right">✈️ Flight</span></div>
+          <div class="flex justify-between gap-3 border-b border-white/10 pb-2"><span class="text-slate-300">Route</span><span id="sumRoute" class="font-semibold text-right">— → —</span></div>
+          <div class="flex justify-between gap-3 border-b border-white/10 pb-2"><span class="text-slate-300">Dates</span><span id="sumDates" class="font-semibold text-right">—</span></div>
+          <div class="flex justify-between gap-3 border-b border-white/10 pb-2"><span class="text-slate-300">Pax &amp; Class</span><span id="sumPax" class="font-semibold text-right">1 · Economy</span></div>
+          <div class="flex justify-between gap-3 border-b border-white/10 pb-2"><span class="text-slate-300">Contact</span><span id="sumContact" class="font-semibold text-right">—</span></div>
+          <div class="flex justify-between gap-3 border-b border-white/10 pb-2"><span class="text-slate-300">Budget</span><span id="sumBudget" class="font-semibold text-right">—</span></div>
+          <div class="flex justify-between gap-3"><span class="text-slate-300">Urgency</span><span id="sumUrgency" class="font-semibold text-right">—</span></div>
+        </div>
+        <div class="mt-5 bg-white/10 rounded-xl p-3 text-xs space-y-2">
+          <p class="font-bold text-white/90 mb-1">What happens next:</p>
+          <div class="flex items-start gap-2"><span>🔍</span><span>We search exclusive channels for your route</span></div>
+          <div class="flex items-start gap-2"><span>💬</span><span>You get your quote on WhatsApp / Email</span></div>
+          <div class="flex items-start gap-2"><span>🎫</span><span>Confirm &amp; we book your ticket instantly</span></div>
+        </div>
+        <div class="mt-4 bg-brandGold/20 border border-brandGold/30 rounded-xl p-3 text-xs text-slate-100">
+          💡 <strong>Tip:</strong> Flexible dates + your budget can unlock rates up to <strong>20% cheaper</strong>.
+        </div>
+      </aside>
+    </div>
+
+    <!-- ============ DESTINATION DESKS (replaces FAQ) ============ -->
+    <section class="mt-16">
+      <div class="text-center mb-8">
+        <p class="text-brandGold text-xs font-bold tracking-[0.3em] uppercase mb-2">Where are you heading?</p>
+        <h2 class="text-3xl font-extrabold text-brandBlue">Your journey deserves its own desk</h2>
+        <p class="text-slate-500 text-sm mt-2 max-w-xl mx-auto">Every path has a dedicated specialist and exclusive fares. Tap your world — we'll pre-fill your request.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Gulf desk -->
+        <button type="button" data-dest="Dubai (DXB)" data-label="Gulf & Middle East desk" class="cat-card text-left bg-gradient-to-b from-white to-slate-50 border-2 border-[#e6d9b8] rounded-2xl p-6 shadow-lg flex flex-col gap-3">
+          <div class="flex items-start justify-between">
+            <span class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandBlue to-[#123a7a] text-2xl flex items-center justify-center shadow-lg">🇦🇪</span>
+            <span class="text-[10px] uppercase tracking-widest bg-brandBlue text-brandGold font-bold px-2.5 py-1 rounded-full">Most booked</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-extrabold text-slate-900">Gulf &amp; Middle East</h3>
+            <p class="text-xs text-brandBlue font-bold uppercase tracking-wide mt-0.5">The Work &amp; Earn Express Desk</p>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">Flights to Dubai, Doha, Riyadh, Kuwait, Muscat &amp; Bahrain — dedicated support for working professionals travelling from Uttar Pradesh, Bihar &amp; East India. Transparent fares, visa-friendly dates, group &amp; first-timer discounts.</p>
+          <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Dubai (DXB)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Doha (DOH)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Riyadh (RUH)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Kuwait (KWI)</span>
+          </div>
+          <span class="w-full text-center mt-2 bg-gradient-to-r from-brandGold to-amber-500 text-slate-900 text-sm font-bold py-2.5 rounded-xl transition group-hover:brightness-95">Get my Gulf quote →</span>
+        </button>
+
+        <!-- Students desk -->
+        <button type="button" data-dest="London (LHR)" data-label="Student Journeys desk" class="cat-card text-left bg-gradient-to-b from-white to-slate-50 border-2 border-[#e6d9b8] rounded-2xl p-6 shadow-lg flex flex-col gap-3">
+          <div class="flex items-start justify-between">
+            <span class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandBlue to-[#123a7a] text-2xl flex items-center justify-center shadow-lg">🎓</span>
+            <span class="text-[10px] uppercase tracking-widest bg-brandGold text-slate-900 font-bold px-2.5 py-1 rounded-full">Exclusive</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-extrabold text-slate-900">Student Journeys</h3>
+            <p class="text-xs text-brandBlue font-bold uppercase tracking-wide mt-0.5">The Student Concierge</p>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">London, Toronto, Sydney, Berlin, Dublin &amp; more — extra student baggage allowances, one-way fares and dates aligned to your intake. You've earned the journey; let us make it effortless.</p>
+          <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">London (LHR)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Toronto (YYZ)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Sydney (SYD)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Berlin (BER)</span>
+          </div>
+          <span class="w-full text-center mt-2 bg-gradient-to-r from-brandGold to-amber-500 text-slate-900 text-sm font-bold py-2.5 rounded-xl transition">Get my student quote →</span>
+        </button>
+
+        <!-- Europe desk -->
+        <button type="button" data-dest="Paris (CDG)" data-label="Europe desk" class="cat-card text-left bg-gradient-to-b from-white to-slate-50 border-2 border-[#e6d9b8] rounded-2xl p-6 shadow-lg flex flex-col gap-3">
+          <div class="flex items-start justify-between">
+            <span class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandBlue to-[#123a7a] text-2xl flex items-center justify-center shadow-lg">🏰</span>
+            <span class="text-[10px] uppercase tracking-widest bg-brandBlue text-brandGold font-bold px-2.5 py-1 rounded-full">Schengen-ready</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-extrabold text-slate-900">Europe</h3>
+            <p class="text-xs text-brandBlue font-bold uppercase tracking-wide mt-0.5">The European Explorer Desk</p>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">Paris, Frankfurt, Amsterdam, Milan, Madrid &amp; beyond — visa-friendly itineraries, multi-city routing and dates that work with your embassy appointment.</p>
+          <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Paris (CDG)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Frankfurt (FRA)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Amsterdam (AMS)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Milan (MXP)</span>
+          </div>
+          <span class="w-full text-center mt-2 bg-gradient-to-r from-brandGold to-amber-500 text-slate-900 text-sm font-bold py-2.5 rounded-xl transition">Get my Europe quote →</span>
+        </button>
+
+        <!-- North America desk -->
+        <button type="button" data-dest="New York (JFK)" data-label="North America desk" class="cat-card text-left bg-gradient-to-b from-white to-slate-50 border-2 border-[#e6d9b8] rounded-2xl p-6 shadow-lg flex flex-col gap-3">
+          <div class="flex items-start justify-between">
+            <span class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandBlue to-[#123a7a] text-2xl flex items-center justify-center shadow-lg">🗽</span>
+            <span class="text-[10px] uppercase tracking-widest bg-brandBlue text-brandGold font-bold px-2.5 py-1 rounded-full">USA &amp; Canada</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-extrabold text-slate-900">North America</h3>
+            <p class="text-xs text-brandBlue font-bold uppercase tracking-wide mt-0.5">The Atlantic Desk</p>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">New York, Chicago, San Francisco, Toronto, Vancouver — long-haul specialists who find the fare windows that save you thousands.</p>
+          <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">New York (JFK)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Chicago (ORD)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Toronto (YYZ)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Vancouver (YVR)</span>
+          </div>
+          <span class="w-full text-center mt-2 bg-gradient-to-r from-brandGold to-amber-500 text-slate-900 text-sm font-bold py-2.5 rounded-xl transition">Get my North America quote →</span>
+        </button>
+
+        <!-- South America desk -->
+        <button type="button" data-dest="São Paulo (GRU)" data-label="South America desk" class="cat-card text-left bg-gradient-to-b from-white to-slate-50 border-2 border-[#e6d9b8] rounded-2xl p-6 shadow-lg flex flex-col gap-3">
+          <div class="flex items-start justify-between">
+            <span class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandBlue to-[#123a7a] text-2xl flex items-center justify-center shadow-lg">🦜</span>
+            <span class="text-[10px] uppercase tracking-widest bg-brandBlue text-brandGold font-bold px-2.5 py-1 rounded-full">Rare routes</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-extrabold text-slate-900">South America</h3>
+            <p class="text-xs text-brandBlue font-bold uppercase tracking-wide mt-0.5">The New Horizons Desk</p>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">São Paulo, Buenos Aires, Santiago, Lima — complex routes handled personally, with the best connections and stopover options mapped for you.</p>
+          <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">São Paulo (GRU)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Buenos Aires (EZE)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Santiago (SCL)</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Lima (LIM)</span>
+          </div>
+          <span class="w-full text-center mt-2 bg-gradient-to-r from-brandGold to-amber-500 text-slate-900 text-sm font-bold py-2.5 rounded-xl transition">Get my South America quote →</span>
+        </button>
+
+        <!-- Group desk -->
+        <button type="button" data-dest="Dubai (DXB)" data-label="Group & Family desk" class="cat-card text-left bg-gradient-to-b from-white to-slate-50 border-2 border-[#e6d9b8] rounded-2xl p-6 shadow-lg flex flex-col gap-3">
+          <div class="flex items-start justify-between">
+            <span class="w-12 h-12 rounded-xl bg-gradient-to-br from-brandBlue to-[#123a7a] text-2xl flex items-center justify-center shadow-lg">👨‍👩‍👧‍👦</span>
+            <span class="text-[10px] uppercase tracking-widest bg-brandGold text-slate-900 font-bold px-2.5 py-1 rounded-full">5 to 50 seats</span>
+          </div>
+          <div>
+            <h3 class="text-lg font-extrabold text-slate-900">Group &amp; Family Travel</h3>
+            <p class="text-xs text-brandBlue font-bold uppercase tracking-wide mt-0.5">The Together Desk</p>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">Weddings, pilgrimages, office teams, village groups, family reunions — one coordinator, one quote, seats kept together, and group fares most people never see.</p>
+          <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">9+ travellers</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Seats together</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">One bill</span>
+            <span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1 text-slate-500">Group fares</span>
+          </div>
+          <span class="w-full text-center mt-2 bg-gradient-to-r from-brandGold to-amber-500 text-slate-900 text-sm font-bold py-2.5 rounded-xl transition">Get my group quote →</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- ============ PASSPORT & VISA HELP CENTER ============ -->
+    <section class="mt-16">
+      <div class="bg-gradient-to-br from-brandBlue to-brandNavy text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-brandGold/20 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-brandGold/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative">
+          <p class="help-kicker text-brandGold text-xs font-bold tracking-[0.3em] uppercase mb-2">Going abroad? Start here</p>
+          <h2 class="help-h2 text-2xl sm:text-3xl font-extrabold mb-2">Passport &amp; Visa Help Center</h2>
+          <p class="help-sub text-slate-300 text-sm max-w-2xl mb-6">Free step-by-step guides + official government links. We never charge for help — and we never stand between you and the official portals.</p>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <a href="/guides.html#passport" class="help-card card-hover bg-white/10 border border-white/15 rounded-2xl p-5 hover:bg-white/15 transition">
+              <span class="text-3xl block mb-2">🛂</span>
+              <span class="block font-bold text-lg">Passport Guide</span>
+              <span class="block text-xs text-slate-300 mt-1">Step-by-step application + official Passport Seva link</span>
+              <span class="block mt-3 text-brandGold font-bold text-sm">Open guide →</span>
+            </a>
+            <a href="/guides.html#visa" class="help-card card-hover bg-white/10 border border-white/15 rounded-2xl p-5 hover:bg-white/15 transition">
+              <span class="text-3xl block mb-2">🌍</span>
+              <span class="block font-bold text-lg">Visa Guide</span>
+              <span class="block text-xs text-slate-300 mt-1">Gulf, UK, USA, Canada, Australia — official portals only</span>
+              <span class="block mt-3 text-brandGold font-bold text-sm">Open guide →</span>
+            </a>
+            <a href="/guides.html#student" class="help-card card-hover bg-white/10 border border-white/15 rounded-2xl p-5 hover:bg-white/15 transition">
+              <span class="text-3xl block mb-2">🎓</span>
+              <span class="block font-bold text-lg">Student Guide</span>
+              <span class="block text-xs text-slate-300 mt-1">Offer letter → student visa → cheap one-way flights</span>
+              <span class="block mt-3 text-brandGold font-bold text-sm">Open guide →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brandNavy text-slate-400 py-6 text-center text-xs border-t border-brandGold/20">
+    <div class="max-w-6xl mx-auto px-4 space-y-1">
+      <p>&copy; 2026 Aurelia Tours &amp; Travels. Contact: +91 9323003681 | workkhalid1509@gmail.com</p>
+      <p><a href="/how-it-works.html" class="hover:text-brandGold transition">How It Works</a> · <a href="/contact.html" class="hover:text-brandGold transition">Contact</a></p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a id="waFloat" href="https://wa.me/919323003681?text=Hi%20Aurelia!%20I%20want%20a%20quote%20for%20my%20trip."
+     target="_blank" rel="noopener"
+     class="fixed bottom-5 right-5 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-3xl transition hover:scale-110"
+     title="Chat on WhatsApp">💬</a>
+
+  <!-- Toast notification -->
+  <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-slate-900/95 text-white text-sm px-5 py-3 rounded-xl shadow-2xl transition-opacity duration-300 opacity-0 pointer-events-none flex items-center gap-2 max-w-[90vw]"></div>
+
+  <script src="/js/i18n.js"></script>
+</body>
+</html>

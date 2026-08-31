@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia Tours & Travels Admin Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800">
+
+  <!-- Top Bar -->
+  <header class="bg-[#0b2b5c] text-white py-4 px-6 flex justify-between items-center shadow">
+    <h1 class="text-xl font-bold">Aurelia Tours &amp; Travels <span class="text-[#f9a826]">Control Center</span></h1>
+    <button onclick="logout()" class="text-sm bg-red-500 px-3 py-1.5 rounded hover:bg-red-600 font-medium">Logout</button>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-6">
+
+    <!-- Filter Controls -->
+    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 flex flex-wrap gap-4 items-center justify-between mb-6">
+      <div class="flex gap-4">
+        <select id="statusFilter" class="border p-2 rounded text-sm bg-white" onchange="loadRequests()">
+          <option value="">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="quoted">Quoted</option>
+          <option value="booked">Booked</option>
+          <option value="closed">Closed</option>
+        </select>
+        <select id="typeFilter" class="border p-2 rounded text-sm bg-white" onchange="loadRequests()">
+          <option value="">All Travel Types</option>
+          <option value="flight">Flights</option>
+          <option value="train">Trains</option>
+        </select>
+      </div>
+      <button onclick="loadRequests()" class="bg-slate-200 px-4 py-2 rounded text-sm font-medium hover:bg-slate-300">Refresh Data</button>
+    </div>
+
+    <!-- Requests Table -->
+    <div class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-x-auto">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead class="bg-slate-50 border-b text-slate-600 uppercase text-xs">
+          <tr>
+            <th class="p-3">Type</th>
+            <th class="p-3">Route</th>
+            <th class="p-3">Dates</th>
+            <th class="p-3">Client</th>
+            <th class="p-3">Status</th>
+            <th class="p-3">Quote</th>
+            <th class="p-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="requestsTbody" class="divide-y">
+          <tr><td colspan="7" class="p-4 text-center">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Quote Modal -->
+  <div id="quoteModal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-xl space-y-4">
+      <h3 class="text-lg font-bold text-slate-800">Dispatch Price Quote</h3>
+      <input type="hidden" id="modalRequestId">
+      <div>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Commission Amount (₹)</label>
+        <select id="modalCommission" class="w-full border p-2 rounded">
+          <!-- Populated dynamically based on type -->
+        </select>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Final Total Quote Price (₹)</label>
+        <input type="number" id="modalQuotePrice" required placeholder="e.g. 4500" class="w-full border p-2 rounded">
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Custom Note to Customer</label>
+        <textarea id="modalMessage" rows="2" placeholder="e.g. Flight includes 15kg baggage." class="w-full border p-2 rounded text-sm"></textarea>
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="closeModal()" class="px-4 py-2 border rounded text-sm">Cancel</button>
+        <button onclick="submitQuote()" class="px-4 py-2 bg-[#0b2b5c] text-white rounded text-sm font-semibold">Send Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const token = localStorage.getItem('aurelia_token');
+    if (!token) window.location.href = '/admin-login.html';
+
+    let currentRequests = [];
+
+    async function loadRequests() {
+      const status = document.getElementById('statusFilter').value;
+      const travelType = document.getElementById('typeFilter').value;
+      let url = `/api/admin/requests?status=${status}&travelType=${travelType}`;
+      const res = await fetch(url, { headers: { 'Authorization': `Bearer ${token}` } });
+      if (res.status === 401 || res.status === 403) logout();
+      currentRequests = await res.json();
+      const tbody = document.getElementById('requestsTbody');
+      tbody.innerHTML = '';
+      if (currentRequests.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="p-4 text-center text-slate-400">No requests found.</td></tr>';
+        return;
+      }
+      currentRequests.forEach(req => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50';
+        tr.innerHTML = `
+          <td class="p-3 font-semibold uppercase text-xs">${req.travelType === 'flight' ? '✈️ Flight' : '🚆 Train'}${req.routeType ? `<br/><span class="text-slate-400 normal-case">${req.routeType}</span>` : ''}</td>
+          <td class="p-3">${req.origin} &rarr; ${req.destination}<br/><span class="text-xs text-slate-500">${req.travelClass} (${req.passengers} Pax)${req.tripType ? ` · ${req.tripType === 'roundtrip' ? '⇄ Round Trip' : 'One Way'}` : ''}${req.preferredTime ? ` · ${req.preferredTime.split(' ')[0]}` : ''}${req.flexibleDates ? ' · 🔄 Flexible' : ''}${req.travelNumber ? ` · #${req.travelNumber}` : ''}</span>${req.specialRequests ? `<br/><span class="text-xs text-amber-600">📝 ${req.specialRequests}</span>` : ''}</td>
+          <td class="p-3 text-xs">${new Date(req.departureDate).toLocaleDateString()}${req.returnDate ? `<br/>Ret: ${new Date(req.returnDate).toLocaleDateString()}` : ''}</td>
+          <td class="p-3"><strong>${req.userName}</strong><br/><a href="tel:${req.userPhone}" class="text-xs text-blue-600">${req.userPhone}</a><br/><a href="mailto:${req.userEmail}" class="text-xs text-slate-500">${req.userEmail}</a>${req.contactMethod ? `<br/><span class="text-xs text-green-600 font-medium">Pref: ${req.contactMethod}</span>` : ''}${req.alternatePhone ? `<br/><span class="text-xs text-slate-500">Alt: ${req.alternatePhone}</span>` : ''}${req.hearAbout ? `<br/><span class="text-xs text-slate-400">via ${req.hearAbout}</span>` : ''}</td>
+          <td class="p-3">
+            <span class="px-2 py-0.5 rounded text-xs font-semibold ${
+              req.status === 'pending' ? 'bg-amber-100 text-amber-800' :
+              req.status === 'quoted' ? 'bg-blue-100 text-blue-800' :
+              req.status === 'booked' ? 'bg-green-100 text-green-800' :
+              'bg-slate-100 text-slate-600'
+            }">${req.status}</span>
+          </td>
+          <td class="p-3 text-xs">${req.quotePrice ? `₹${req.quotePrice} <span class="text-slate-400">(+₹${req.commission})</span>` : '-'}</td>
+          <td class="p-3 flex gap-2">
+            <button onclick="openQuoteModal('${req._id}')" class="bg-amber-400 hover:bg-amber-500 text-slate-900 px-2.5 py-1 rounded text-xs font-semibold">Quote</button>
+            <select onchange="updateStatus('${req._id}', this.value)" class="text-xs border rounded p-1">
+              <option value="">Status...</option>
+              <option value="booked">Mark Booked</option>
+              <option value="closed">Mark Closed</option>
+            </select>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function openQuoteModal(id) {
+      const item = currentRequests.find(r => r._id === id);
+      if (!item) return;
+      document.getElementById('modalRequestId').value = id;
+      const commSelect = document.getElementById('modalCommission');
+      commSelect.innerHTML = item.travelType === 'train'
+        ? '<option value="10">₹10</option><option value="20">₹20</option><option value="30">₹30</option>'
+        : '<option value="100">₹100</option><option value="110">₹110</option><option value="120">₹120</option>';
+      document.getElementById('modalQuotePrice').value = item.quotePrice || '';
+      document.getElementById('quoteModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('quoteModal').classList.add('hidden');
+    }
+
+    async function submitQuote() {
+      const payload = {
+        id: document.getElementById('modalRequestId').value,
+        commission: document.getElementById('modalCommission').value,
+        quotePrice: document.getElementById('modalQuotePrice').value,
+        customMessage: document.getElementById('modalMessage').value
+      };
+      const res = await fetch('/api/admin/send-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        closeModal();
+        loadRequests();
+      } else {
+        alert('Failed to send quote');
+      }
+    }
+
+    async function updateStatus(id, status) {
+      if (!status) return;
+      await fetch(`/api/admin/status/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+        body: JSON.stringify({ status })
+      });
+      loadRequests();
+    }
+
+    function logout() {
+      localStorage.removeItem('aurelia_token');
+      window.location.href = '/admin-login.html';
+    }
+
+    loadRequests();
+  </script>
+</body>
+</html>
