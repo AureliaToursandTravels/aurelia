@@ -71,9 +71,24 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 w-full flex-grow mb-16">
+    <!-- Sticky section navigation -->
+    <nav class="sticky top-16 z-30 -mx-4 px-4 py-2.5 bg-white/95 backdrop-blur border-b border-[#e6d9b8] flex gap-2 overflow-x-auto text-xs font-bold whitespace-nowrap">
+      <a href="#airlines" class="px-3 py-1.5 rounded-full bg-brandBlue text-white">✈️ Airlines</a>
+      <a href="#cabins" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">💺 Cabins</a>
+      <a href="#trains" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">🚆 Trains</a>
+      <a href="#airport" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">🕐 Airport</a>
+      <a href="#study" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">🎓 Study</a>
+      <a href="#tourism" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">🌍 Destinations</a>
+      <a href="#metros" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">🚇 Metros</a>
+      <a href="#pilgrimage" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">🛕 Pilgrimage</a>
+      <a href="#hotels" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">🏨 Hotels</a>
+      <a href="#tips" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">💡 Tips</a>
+      <a href="#hajj" class="px-3 py-1.5 rounded-full border border-slate-200 text-slate-600 hover:border-brandGold hover:text-brandBlue">🕋 Hajj</a>
+    </nav>
+
 
     <!-- ================= AIRLINES & CABINS ================= -->
-    <section class="mt-12">
+    <section id="airlines" class="scroll-mt-28 mt-12">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">✈️ World Airlines &amp; Cabin Classes</h2>
       <p class="text-sm text-slate-500 mb-6">From budget to ultra-luxury — know what you're actually paying for.</p>
 
@@ -154,7 +169,7 @@
         <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2"><span class="font-bold">🇵🇰 PIA</span> <span class="text-slate-500">Karachi · Pakistan International</span></div>
       </div>
 
-      <h3 class="font-bold text-brandBlue mt-8 mb-3">Cabin classes — what you actually get</h3>
+      <h3 id="cabins" class="font-bold text-brandBlue mt-8 mb-3">Cabin classes — what you actually get</h3>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
         <div class="bg-white border-t-4 border-slate-300 rounded-xl overflow-hidden shadow-sm card-hover">
           <img src="https://sc02.alicdn.com/kf/A7bd70e61ff0146d18a80c61415f6f754m.png" alt="Economy class cabin illustration" class="w-full h-32 object-cover">
@@ -204,7 +219,7 @@
     </section>
 
     <!-- ================= TRAINS ================= -->
-    <section class="mt-14">
+    <section id="trains" class="scroll-mt-28 mt-14">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🚆 Indian Railways — Every Class Explained</h2>
       <p class="text-sm text-slate-500 mb-6">From Sleeper to Vande Bharat — pick the right class for your budget.</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
@@ -257,7 +272,7 @@
     </section>
 
     <!-- ================= AIRPORT & FLIGHT BASICS ================= -->
-    <section class="mt-14">
+    <section id="airport" class="scroll-mt-28 mt-14">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🕐 Airport &amp; Flight Basics</h2>
       <p class="text-sm text-slate-500 mb-6">Typical rules — always check your airline's latest terms.</p>
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
@@ -301,7 +316,7 @@
     </section>
 
     <!-- ================= STUDY ABROAD ================= -->
-    <section class="mt-14">
+    <section id="study" class="scroll-mt-28 mt-14">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🎓 Study Abroad Compass</h2>
       <p class="text-sm text-slate-500 mb-6">Courses, countries and what it takes — figures are typical ranges; always verify on official sites.</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
@@ -349,7 +364,7 @@
     </section>
 
     <!-- ================= TOURISM ================= -->
-    <section class="mt-14">
+    <section id="tourism" class="scroll-mt-28 mt-14">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🌍 Dream Destinations — World &amp; India</h2>
       <p class="text-sm text-slate-500 mb-6">Where the world goes — and the gems in your own country.</p>
 
@@ -397,7 +412,7 @@
     </section>
 
     <!-- ================= HAJJ & UMRAH ================= -->
-    <section class="mt-14">
+    <section id="hajj" class="scroll-mt-28 mt-14">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🕋 Hajj &amp; Umrah — Documents &amp; Steps</h2>
       <p class="text-sm text-slate-500 mb-6">We don't arrange pilgrimages — but here's exactly what you need to do it right (verify current rules on the official platforms).</p>
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
@@ -428,7 +443,7 @@
 
     <!-- ================= 15 MORE AIRLINES (80 total) ================= -->
     <section class="mt-14">
-      <h3 class="font-bold text-brandBlue mb-3">Even more airlines <span class="font-normal text-slate-400 normal-case">— the full global picture</span></h3>
+      <h3 id="famoustrains" class="font-bold text-brandBlue mb-3">Even more airlines <span class="font-normal text-slate-400 normal-case">— the full global picture</span></h3>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs">
         <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2"><span class="font-bold">🇰🇿 Air Astana</span> <span class="text-slate-500">Almaty · Central Asia's star</span></div>
         <div class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2"><span class="font-bold">🇦🇿 Azerbaijan Airlines</span> <span class="text-slate-500">Baku · Caspian gateway</span></div>
@@ -449,7 +464,7 @@
     </section>
 
     <!-- ================= HOTELS ================= -->
-    <section class="mt-14">
+    <section id="hotels" class="scroll-mt-28 mt-14">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🏨 Hotels &amp; Stays — Quick Guide</h2>
       <p class="text-sm text-slate-500 mb-6">Know what you're paying for, wherever you sleep.</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
@@ -492,7 +507,7 @@
 
 
     <!-- ================= METROS & LOCAL TRAINS ================= -->
-    <section class="mt-14">
+    <section id="metros" class="scroll-mt-28 mt-14">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🚇 Metros &amp; Local Trains — Know Your City</h2>
       <p class="text-sm text-slate-500 mb-6">Info for everyday city travel (these aren't bookable with us — but knowing them makes you a smart traveller).</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
@@ -507,7 +522,7 @@
     </section>
 
     <!-- ================= PILGRIMAGE ================= -->
-    <section class="mt-14">
+    <section id="pilgrimage" class="scroll-mt-28 mt-14">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🛕 Pilgrimage &amp; Spiritual Journeys</h2>
       <p class="text-sm text-slate-500 mb-6">Where faith meets the rails &amp; skies — we book your journey to every sacred place.</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
@@ -527,7 +542,7 @@
     </section>
 
     <!-- ================= PRO TIPS ================= -->
-    <section class="mt-14">
+    <section id="tips" class="scroll-mt-28 mt-14">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">💡 Pro Travel Tips</h2>
       <p class="text-sm text-slate-500 mb-6">The small tricks that save money and stress.</p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
