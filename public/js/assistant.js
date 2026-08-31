@@ -79,7 +79,7 @@
       }
     </style>
     <button id="asFab" title="Chat with Aurelia Concierge">🤖</button>
-    <div id="asBadge">✨ Need the cheapest fare? Chat with me</div>
+    <div id="asBadge">✨ Want the best price? Chat with me</div>
     <div id="asChat" class="closed">
       <div id="asHeader">
         <div id="asAvatar">🤖</div>
@@ -112,7 +112,7 @@
     chat.classList.remove('closed');
     fab.style.display = 'none';
     badge.style.display = 'none';
-    if (!opened) { opened = true; step = 'type'; botSay('Hi! 👋 I\'m the Aurelia Concierge — your personal fare-finder.\n\nTell me what you need and I\'ll get our team to hunt the cheapest price for you.', ['✈️ Flight', '🚆 Train', '🛂 Passport & Visa help', '💬 Talk to a human']); }
+    if (!opened) { opened = true; step = 'type'; botSay('Hi! 👋 I\'m the Aurelia Concierge — your personal fare-finder.\n\nTell me what you need and I\'ll get our team to hunt the best possible price for you.', ['✈️ Flight', '🚆 Train', '🛂 Passport & Visa help', '💬 Talk to a human']); }
   }
   fab.addEventListener('click', openChat);
   badge.addEventListener('click', openChat);
@@ -258,7 +258,7 @@
     }).then(r => r.json()).then(data => {
       typing.remove();
       if (data.success) {
-        addBot(`🎉 Request sent successfully!\n\nOur team is now hunting the cheapest fare for ${F.origin} → ${F.destination}. Our experts are online every day 11am–3pm — your quote will arrive then.\n\nNeed a human right now?`, ['💬 Chat on WhatsApp']);
+        addBot(`🎉 Request sent successfully!\n\nOur team is now hunting the best possible fare for ${F.origin} → ${F.destination}. Our experts are online every day 11am–3pm — your quote will arrive then.\n\nNeed a human right now?`, ['💬 Chat on WhatsApp']);
         step = 'done';
       } else {
         addBot('⚠️ Something went wrong. Please try again or message us on WhatsApp.', ['💬 Chat on WhatsApp', '↩️ Try again']);
