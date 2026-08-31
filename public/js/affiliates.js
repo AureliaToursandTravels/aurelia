@@ -1,12 +1,14 @@
 /* ============================================================
-   AURELIA AFFILIATE LINKS — HOW YOU EARN A CUT ON BOOKINGS
+   AURELIA AFFILIATE LINKS — OWNER ONLY (private config)
    ------------------------------------------------------------
-   1. Join each partner's FREE affiliate program (steps in
-      DEPLOYMENT-GUIDE.md → Part 11).
+   1. Join each partner's FREE affiliate program (see
+      DEPLOYMENT-GUIDE.md Part 11).
    2. Paste your tracking ID into the "trackingId" field below.
-   3. Done! The homepage button becomes an affiliate link and
-      every booking made through it pays YOU a commission —
-      while customers pay the exact same price.
+   3. The homepage buttons become affiliate links and every
+      booking pays YOU a commission — customers pay the same.
+   NOTE: owner instructions are private — never printed on the
+   public site. The visible note under the buttons is always a
+   customer-friendly message.
    ============================================================ */
 window.AURELIA_AFFILIATES = [
   {
@@ -45,9 +47,10 @@ window.AURELIA_AFFILIATES = [
       </a>`).join('');
 
     if (note) {
+      // Customer-friendly message only — owner instructions are shared privately, never on the site
       note.innerHTML = activeCount > 0
-        ? '🎉 Affiliate tracking is ACTIVE — you earn a commission on every booking made through these links.'
-        : '🔧 <strong>Owner tip:</strong> join the free affiliate programs (Wego, Trip.com, Cleartrip, Skyscanner — see guide Part 11) and paste your IDs in <code>public/js/affiliates.js</code> to start earning a cut on every booking made through these buttons. Until then, the buttons still work as direct booking links.';
+        ? '✨ Thank you for booking through our partner links — every booking supports Aurelia Tours &amp; Travels. Same prices, always.'
+        : '✨ Book through our trusted partners — you pay the same price you\'d pay anywhere, and it supports our small business. Thank you!';
     }
   }
   document.addEventListener('DOMContentLoaded', build);
