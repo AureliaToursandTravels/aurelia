@@ -506,6 +506,49 @@
       </aside>
     </div>
 
+    <!-- ============ POPULAR ROUTES ============ -->
+    <section class="mt-10">
+      <div class="bg-white border border-[#e6d9b8] rounded-2xl p-5 shadow-sm">
+        <p class="text-xs font-bold uppercase tracking-widest text-brandGold mb-3">🔥 Popular searches — one tap fills the form</p>
+        <div class="flex flex-wrap gap-2" id="popRoutes"></div>
+      </div>
+    </section>
+
+    <!-- ============ EVERYTHING FOR YOUR JOURNEY ============ -->
+    <section class="mt-14">
+      <div class="text-center mb-6">
+        <p class="text-brandGold text-xs font-bold tracking-[0.3em] uppercase mb-2">Beyond tickets</p>
+        <h2 class="text-3xl font-extrabold text-brandBlue">Everything for your journey</h2>
+        <p class="text-slate-500 text-sm mt-2">We arrange or advise on all of this — just ask on WhatsApp.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <a href="https://wa.me/919323003681?text=Hi%20Aurelia!%20I%20need%20help%20with%20HOTELS." target="_blank" rel="noopener" class="card-hover bg-white border-2 border-[#e6d9b8] rounded-2xl p-5 text-center hover:border-brandGold transition">
+          <span class="text-3xl block mb-2">🏨</span><span class="block font-bold text-sm">Hotels &amp; Stays</span><span class="block text-[11px] text-slate-400 mt-1">Best rates near airport/station</span>
+        </a>
+        <a href="https://wa.me/919323003681?text=Hi%20Aurelia!%20I%20need%20TRAVEL%20INSURANCE." target="_blank" rel="noopener" class="card-hover bg-white border-2 border-[#e6d9b8] rounded-2xl p-5 text-center hover:border-brandGold transition">
+          <span class="text-3xl block mb-2">🛡️</span><span class="block font-bold text-sm">Travel Insurance</span><span class="block text-[11px] text-slate-400 mt-1">Medical &amp; trip cover abroad</span>
+        </a>
+        <a href="https://wa.me/919323003681?text=Hi%20Aurelia!%20I%20need%20help%20with%20FOREIGN%20EXCHANGE." target="_blank" rel="noopener" class="card-hover bg-white border-2 border-[#e6d9b8] rounded-2xl p-5 text-center hover:border-brandGold transition">
+          <span class="text-3xl block mb-2">💱</span><span class="block font-bold text-sm">Forex &amp; Cards</span><span class="block text-[11px] text-slate-400 mt-1">Best rates &amp; cards for abroad</span>
+        </a>
+        <a href="https://wa.me/919323003681?text=Hi%20Aurelia!%20I%20need%20AIRPORT%20TRANSFER." target="_blank" rel="noopener" class="card-hover bg-white border-2 border-[#e6d9b8] rounded-2xl p-5 text-center hover:border-brandGold transition">
+          <span class="text-3xl block mb-2">🚖</span><span class="block font-bold text-sm">Airport Transfers</span><span class="block text-[11px] text-slate-400 mt-1">Pick-up &amp; drop, any city</span>
+        </a>
+        <a href="https://wa.me/919323003681?text=Hi%20Aurelia!%20I%20need%20help%20with%20SIM%20and%20DATA." target="_blank" rel="noopener" class="card-hover bg-white border-2 border-[#e6d9b8] rounded-2xl p-5 text-center hover:border-brandGold transition">
+          <span class="text-3xl block mb-2">📶</span><span class="block font-bold text-sm">SIM &amp; Data</span><span class="block text-[11px] text-slate-400 mt-1">International SIM, eSIM advice</span>
+        </a>
+        <a href="https://wa.me/919323003681?text=Hi%20Aurelia!%20I%20want%20to%20book%20a%20CRUISE." target="_blank" rel="noopener" class="card-hover bg-white border-2 border-[#e6d9b8] rounded-2xl p-5 text-center hover:border-brandGold transition">
+          <span class="text-3xl block mb-2">🛳️</span><span class="block font-bold text-sm">Cruises</span><span class="block text-[11px] text-slate-400 mt-1">Mediterranean, Dubai, Singapore</span>
+        </a>
+        <a href="https://wa.me/919323003681?text=Hi%20Aurelia!%20I%20want%20a%20HOLIDAY%20PACKAGE." target="_blank" rel="noopener" class="card-hover bg-white border-2 border-[#e6d9b8] rounded-2xl p-5 text-center hover:border-brandGold transition">
+          <span class="text-3xl block mb-2">🎁</span><span class="block font-bold text-sm">Holiday Packages</span><span class="block text-[11px] text-slate-400 mt-1">Flights + stay, tailored for you</span>
+        </a>
+        <a href="https://wa.me/919323003681?text=Hi%20Aurelia!%20I%20want%20a%20GROUP%20TOUR%20quote." target="_blank" rel="noopener" class="card-hover bg-white border-2 border-[#e6d9b8] rounded-2xl p-5 text-center hover:border-brandGold transition">
+          <span class="text-3xl block mb-2">👥</span><span class="block font-bold text-sm">Group Tours</span><span class="block text-[11px] text-slate-400 mt-1">Hajj, Umrah, pilgrimages, teams</span>
+        </a>
+      </div>
+    </section>
+
     <!-- ============ DESTINATION DESKS (replaces FAQ) ============ -->
     <section class="mt-16">
       <div class="text-center mb-8">
@@ -1104,6 +1147,70 @@
       updateSummary();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // ---------- Smart city autocomplete ----------
+    const CITIES = [
+      ['Mumbai','BOM'],['Delhi','DEL'],['Bengaluru','BLR'],['Chennai','MAA'],['Kolkata','CCU'],['Hyderabad','HYD'],
+      ['Pune','PNQ'],['Ahmedabad','AMD'],['Goa','GOI'],['Jaipur','JAI'],['Kochi','COK'],['Lucknow','LKO'],
+      ['Guwahati','GAU'],['Patna','PAT'],['Bhubaneswar','BBI'],['Indore','IDR'],['Chandigarh','IXC'],['Nagpur','NAG'],
+      ['Varanasi','VNS'],['Thiruvananthapuram','TRV'],['Amritsar','ATQ'],['Surat','STV'],['Dehradun','DED'],['Srinagar','SXR'],
+      ['Raipur','RPR'],['Bhopal','BHO'],['Coimbatore','CJB'],['Mangaluru','IXE'],['Vijayawada','VGA'],['Visakhapatnam','VTZ'],
+      ['Jodhpur','JDH'],['Udaipur','UDR'],['Port Blair','IXZ'],['Shillong','SHL'],['Agra','AGR'],['Prayagraj','IXD'],
+      ['Dubai','DXB'],['Abu Dhabi','AUH'],['Doha','DOH'],['Riyadh','RUH'],['Jeddah','JED'],['Kuwait','KWI'],
+      ['Muscat','MCT'],['Manama','BAH'],['Karachi','KHI'],['Lahore','LHE'],['London','LHR'],['Paris','CDG'],
+      ['Frankfurt','FRA'],['Amsterdam','AMS'],['New York','JFK'],['Toronto','YYZ'],['Sydney','SYD'],['Melbourne','MEL'],
+      ['Singapore','SIN'],['Bangkok','BKK'],['Kuala Lumpur','KUL'],['Bali','DPS'],['Tokyo','NRT'],['Seoul','ICN'],
+      ['Hong Kong','HKG'],['Shanghai','PVG'],['Johannesburg','JNB'],['Nairobi','NBO'],['Cairo','CAI'],['Istanbul','IST']
+    ];
+    function autocomplete(id) {
+      const input = $(id);
+      input.parentElement.style.position = 'relative';
+      const box = document.createElement('div');
+      box.className = 'hidden absolute z-30 mt-1 w-full bg-white border border-[#e6d9b8] rounded-xl shadow-xl max-h-64 overflow-y-auto text-sm';
+      input.parentElement.appendChild(box);
+      input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        if (!q) { box.classList.add('hidden'); return; }
+        const hits = CITIES.filter(([n, c]) => n.toLowerCase().includes(q) || c.toLowerCase().includes(q)).slice(0, 9);
+        if (!hits.length) { box.classList.add('hidden'); return; }
+        box.innerHTML = hits.map(([n, c]) =>
+          `<button type="button" class="w-full text-left px-3 py-2 hover:bg-amber-50 flex justify-between gap-2"><span>${n}</span><span class="text-slate-400 text-xs font-bold">${c}</span></button>`
+        ).join('');
+        box.classList.remove('hidden');
+        box.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+          input.value = b.children[0].textContent + ' (' + b.children[1].textContent + ')';
+          box.classList.add('hidden');
+          updateSummary();
+        }));
+      });
+      input.addEventListener('blur', () => setTimeout(() => box.classList.add('hidden'), 150));
+    }
+    autocomplete('origin');
+    autocomplete('destination');
+
+    // ---------- Popular routes one-tap ----------
+    const POP_ROUTES = [
+      ['Mumbai (BOM)','Dubai (DXB)'],['Delhi (DEL)','London (LHR)'],['Patna (PAT)','Doha (DOH)'],['Lucknow (LKO)','Jeddah (JED)'],
+      ['Kolkata (CCU)','Bangkok (BKK)'],['Mumbai (BOM)','Goa (GOI)'],['Delhi (DEL)','Srinagar (SXR)'],['Hyderabad (HYD)','Karachi (KHI)'],
+      ['Chennai (MAA)','Singapore (SIN)'],['Ahmedabad (AMD)','Kuwait (KWI)']
+    ];
+    const prBox = document.getElementById('popRoutes');
+    if (prBox) {
+      POP_ROUTES.forEach(([o, d]) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'border-2 border-slate-200 rounded-full px-3 py-1.5 text-xs font-semibold text-slate-600 hover:border-brandGold hover:text-brandBlue transition';
+        b.textContent = o + ' → ' + d;
+        b.addEventListener('click', () => {
+          $('origin').value = o;
+          $('destination').value = d;
+          $('origin').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          showToast('🔥 Route set! Now pick your date below.');
+          updateSummary();
+        });
+        prBox.appendChild(b);
+      });
+    }
 
     // ---------- Init ----------
     setType('flight');
