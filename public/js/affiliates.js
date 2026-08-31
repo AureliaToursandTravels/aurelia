@@ -28,7 +28,13 @@ window.AURELIA_AFFILIATES = [
   { name: 'Kayak', icon: '🩵', homeUrl: 'https://www.kayak.co.in/flights', trackingId: '' },
   { name: 'Booking.com', icon: '🛏️', homeUrl: 'https://www.booking.com', trackingId: '' },
   { name: 'Agoda', icon: '🏨', homeUrl: 'https://www.agoda.com', trackingId: '' },
-  { name: 'Hotels.com', icon: '🏝️', homeUrl: 'https://www.hotels.com', trackingId: '' }
+  { name: 'Hotels.com', icon: '🏝️', homeUrl: 'https://www.hotels.com', trackingId: '' },
+  { name: 'RailYatri', icon: '🚆', homeUrl: 'https://www.railyatri.in', trackingId: '' },
+  { name: 'ConfirmTkt', icon: '🎟️', homeUrl: 'https://www.confirmtkt.com', trackingId: '' },
+  { name: 'redBus', icon: '🚌', homeUrl: 'https://www.redbus.in', trackingId: '' },
+  { name: 'Ola Cabs', icon: '🚕', homeUrl: 'https://www.olacabs.com', trackingId: '' },
+  { name: 'Uber', icon: '🚗', homeUrl: 'https://www.uber.com', trackingId: '' },
+  { name: 'Rapido', icon: '🛵', homeUrl: 'https://www.rapido.bike', trackingId: '' }
 ];
 
 (function () {
