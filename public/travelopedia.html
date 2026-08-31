@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travelopedia — Airlines, Trains, Study & Travel Guide | Aurelia Tours & Travels</title>
+  <meta name="description" content="Everything about flying and travelling: world airlines & cabin classes, Indian train classes, airport timing, study abroad destinations, world & India tourism, Hajj & Umrah documents.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/travelopedia.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brandBlue: '#0b2b5c', brandGold: '#f9a826', brandNavy: '#071a3a' } } }
+    }
+  </script>
+  <style>
+    .gold-text { background: linear-gradient(90deg, #f9a826 0%, #fcd34d 45%, #d97706 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -18px rgba(11,43,92,.4); }
+    details.tl-faq summary { cursor: pointer; list-style: none; }
+    details.tl-faq summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- Nav -->
+  <nav class="bg-brandNavy text-white shadow-lg sticky top-0 z-40 border-b border-brandGold/20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="/" class="flex items-center gap-2">
+        <span class="text-2xl">✈️🚆</span>
+        <span>
+          <span class="text-xl font-extrabold gold-text block leading-tight">Aurelia</span>
+          <span class="text-[9px] tracking-[0.25em] text-slate-300 block uppercase">Tours &amp; Travels</span>
+        </span>
+      </a>
+      <div class="flex items-center gap-4 text-sm font-medium">
+        <a href="/" class="hover:text-brandGold transition">Home</a>
+        <a href="/travelopedia.html" class="hover:text-brandGold transition text-brandGold font-bold">📚 Travelopedia</a>
+        <a href="/guides.html" class="hover:text-brandGold transition">🛂 Passport &amp; Visa</a>
+        <a href="/contact.html" class="hover:text-brandGold transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="relative overflow-hidden bg-gradient-to-br from-brandNavy via-brandBlue to-[#123a7a] text-white pt-14 pb-20 px-4 text-center">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[640px] h-[640px] bg-brandGold/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto relative">
+      <p class="text-brandGold text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase mb-3">The Aurelia Travelopedia</p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-4">Everything About <span class="gold-text">Flying, Studying &amp; Travelling</span></h1>
+      <p class="text-slate-200 text-base sm:text-lg mb-7">Airlines &amp; cabin classes · Indian trains · airport timing · study abroad · world &amp; India tourism · Hajj &amp; Umrah. One encyclopedia for every traveller.</p>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 w-full flex-grow mb-16">
+
+    <!-- ================= AIRLINES & CABINS ================= -->
+    <section class="mt-12">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">✈️ World Airlines &amp; Cabin Classes</h2>
+      <p class="text-sm text-slate-500 mb-6">From budget to ultra-luxury — know what you're actually paying for.</p>
+
+      <h3 class="font-bold text-brandBlue mb-3">Major airlines of the world (hub → what they're known for)</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇦🇪 Emirates</span> <span class="text-slate-500">Dubai · legendary First/Business, A380 bars</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇶🇦 Qatar Airways</span> <span class="text-slate-500">Doha · 5-star service, Qsuite business class</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇸🇬 Singapore Airlines</span> <span class="text-slate-500">Singapore · best-in-world economy &amp; suites</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇮🇳 Air India</span> <span class="text-slate-500">Delhi/Mumbai · flag carrier, new A350s, US/UK/Europe routes</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇮🇳 IndiGo</span> <span class="text-slate-500">Gurugram · India's largest, no-frills, great on-time record</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇮🇳 Vistara / AI Express</span> <span class="text-slate-500">full-service premium domestic · Gulf &amp; SEA low-cost</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇦🇪 Etihad</span> <span class="text-slate-500">Abu Dhabi · residence suites, premium economy</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇸🇦 Saudia</span> <span class="text-slate-500">Jeddah/Riyadh · Hajj/Umrah specialist, Gulf &amp; Asia</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇹🇷 Turkish Airlines</span> <span class="text-slate-500">Istanbul · most countries served in the world</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇩🇪 Lufthansa</span> <span class="text-slate-500">Frankfurt · Germany/Europe hub for students</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇬🇧 British Airways</span> <span class="text-slate-500">London · UK routes, Club World business</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇺🇸 United / Delta / American</span> <span class="text-slate-500">USA · transatlantic &amp; transpacific networks</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇯🇵 ANA / JAL</span> <span class="text-slate-500">Tokyo · spotless service, Japan routes</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇭🇰 Cathay Pacific</span> <span class="text-slate-500">Hong Kong · premium transpacific</span></div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4"><span class="font-bold">🇲🇾 AirAsia / 🇸🇬 Scoot / 🇦🇪 flydubai</span> <span class="text-slate-500">low-cost heroes of Asia &amp; Gulf</span></div>
+      </div>
+
+      <h3 class="font-bold text-brandBlue mt-8 mb-3">Cabin classes — what you actually get</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+        <div class="bg-white border-t-4 border-slate-300 rounded-xl p-5 shadow-sm card-hover">
+          <p class="text-2xl mb-1">💺</p>
+          <h4 class="font-extrabold">Economy</h4>
+          <ul class="text-slate-600 mt-2 space-y-1 list-disc pl-4 text-xs">
+            <li>Standard seat, 1 checked bag typical (15–23 kg, varies)</li>
+            <li>Meals on full-service; buy-on-board on budget lines</li>
+            <li>Cheapest way to fly — the fare we hunt for you</li>
+          </ul>
+        </div>
+        <div class="bg-white border-t-4 border-blue-400 rounded-xl p-5 shadow-sm card-hover">
+          <p class="text-2xl mb-1">🛋️</p>
+          <h4 class="font-extrabold">Premium Economy</h4>
+          <ul class="text-slate-600 mt-2 space-y-1 list-disc pl-4 text-xs">
+            <li>Wider seat, more legroom, better meals</li>
+            <li>Priority check-in, extra baggage (usually +1 bag)</li>
+            <li>Costs ~1.5–2× economy — good for long flights</li>
+          </ul>
+        </div>
+        <div class="bg-white border-t-4 border-brandGold rounded-xl p-5 shadow-sm card-hover">
+          <p class="text-2xl mb-1">💼</p>
+          <h4 class="font-extrabold">Business Class</h4>
+          <ul class="text-slate-600 mt-2 space-y-1 list-disc pl-4 text-xs">
+            <li>Flat-bed seat, lounge access, priority everything</li>
+            <li>Multi-course dining, amenity kits, fast immigration lanes</li>
+            <li>Costs ~3–6× economy — our cut suggestion rises with it (+25–55%)</li>
+          </ul>
+        </div>
+        <div class="bg-white border-t-4 border-purple-500 rounded-xl p-5 shadow-sm card-hover">
+          <p class="text-2xl mb-1">👑</p>
+          <h4 class="font-extrabold">First / Suites</h4>
+          <ul class="text-slate-600 mt-2 space-y-1 list-disc pl-4 text-xs">
+            <li>Private suite with door, shower on some A380s</li>
+            <li>Chauffeur transfers, fine-dining on demand</li>
+            <li>The most exclusive way to fly — worth every rupee if you can</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TRAINS ================= -->
+    <section class="mt-14">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🚆 Indian Railways — Every Class Explained</h2>
+      <p class="text-sm text-slate-500 mb-6">From Sleeper to Vande Bharat — pick the right class for your budget.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🛏️ Sleeper (SL)</span> <span class="text-slate-500">— most budget, 3-tier open berths, no AC. Ideal for overnight short-mid trips.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">❄️ 3 AC (3A)</span> <span class="text-slate-500">— AC 3-tier berths, curtains, ~2× sleeper price. Most popular overnight class.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">💎 2 AC (2A)</span> <span class="text-slate-500">— AC 2-tier, 4 berths/cabin, more privacy, ~3× sleeper.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">👑 1 AC (1A)</span> <span class="text-slate-500">— AC 1st class, 2-berth lockable cabins, ~5× sleeper. Best comfort on classics.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🪑 Chair Car (CC)</span> <span class="text-slate-500">— AC seated, day trains like Shatabdi/Tejas. Great for 4–8 hour journeys.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">⚡ Vande Bharat</span> <span class="text-slate-500">— India's flagship semi-high-speed: 160 km/h, AC Chair Car + Executive, onboard meals, fastest city links.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🛤️ Rajdhani / Shatabdi / Duronto</span> <span class="text-slate-500">— premium express services: fully AC, meals included, priority on the network.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🎟️ Tatkal &amp; Premium Tatkal</span> <span class="text-slate-500">— last-minute quota opened 1 day before departure at higher fares. We book these too.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🧓 Concession quotas</span> <span class="text-slate-500">— senior citizens, students, ladies &amp; disabled get fare concessions. Mention it in your request!</span></div>
+      </div>
+    </section>
+
+    <!-- ================= AIRPORT & FLIGHT BASICS ================= -->
+    <section class="mt-14">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🕐 Airport &amp; Flight Basics</h2>
+      <p class="text-sm text-slate-500 mb-6">Typical rules — always check your airline's latest terms.</p>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-2">Arrive at the airport</h4>
+          <ul class="text-slate-600 space-y-1.5">
+            <li><strong>Domestic:</strong> 2 hours before departure (check-in closes ~45–60 min before).</li>
+            <li><strong>International:</strong> 3 hours before (immigration + security queues).</li>
+            <li><strong>Peak season / festivals:</strong> add 30–60 min more.</li>
+            <li>Gate closes 15–20 min before departure — boarding pass ≠ board.</li>
+          </ul>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-2">Typical flying times (examples)</h4>
+          <ul class="text-slate-600 space-y-1.5">
+            <li>Mumbai → Delhi: ~2h05m · Mumbai → Dubai: ~3h15m</li>
+            <li>Delhi → London: ~8h30m · Delhi → New York: ~15h</li>
+            <li>Delhi → Singapore: ~6h · Mumbai → Doha: ~3h40m</li>
+            <li>Bangkok → anywhere in Asia: usually 4–8h</li>
+          </ul>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-2">Flight frequencies (typical)</h4>
+          <ul class="text-slate-600 space-y-1.5">
+            <li>Metro-to-metro (Delhi–Mumbai): 30–60+ flights daily, every 15–30 min.</li>
+            <li>Metro-to-tier-2 (Mumbai–Patna): 5–15 flights daily.</li>
+            <li>International hubs (DXB, DOH): 2–8 daily per route from metros.</li>
+            <li>Trains: popular routes run 3–10 services daily; some routes once daily.</li>
+          </ul>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-2">Baggage (typical allowances)</h4>
+          <ul class="text-slate-600 space-y-1.5">
+            <li>Domestic economy: 15 kg check-in + 7 kg cabin (full-service).</li>
+            <li>International economy: 23–30 kg (varies by airline/route).</li>
+            <li>Students often get +10–23 kg extra — ask us, we book student fares.</li>
+            <li>Liquids in cabin: max 100 ml per container.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STUDY ABROAD ================= -->
+    <section class="mt-14">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🎓 Study Abroad Compass</h2>
+      <p class="text-sm text-slate-500 mb-6">Courses, countries and what it takes — figures are typical ranges; always verify on official sites.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-1">🩺 MBBS Abroad</h4>
+          <p class="text-slate-600 text-xs">Popular: <strong>Russia, China, Philippines, Nepal, Bangladesh, Kyrgyzstan, Georgia</strong>. Duration ~5–6 years (incl. internship). Typical annual tuition roughly ₹2–8 lakh (many countries cheaper than Indian private colleges). Requires: NEET, 10+2 with PCB, passport. After graduation, FMGE/NExT to practise in India. <em>Verify the university is in the NMC-recognised list!</em></p>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-1">⚙️ Engineering</h4>
+          <p class="text-slate-600 text-xs">Top picks: <strong>Germany</strong> (mostly low/no tuition, need blocked account), <strong>USA, Canada, Australia, UK</strong>. Duration 3–4 years (bachelor) / 1–2 years (master). Requires: strong maths/physics, IELTS/TOEFL, SAT/GRE (varies), funds proof. Germany + Netherlands give the best value for Indian engineers today.</p>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-1">💼 MBA</h4>
+          <p class="text-slate-600 text-xs">Top picks: <strong>USA (GMAT/GRE), UK, Canada, Australia, Singapore, India (IIMs/CAT)</strong>. Duration 1–2 years. Requires: bachelor's, work experience (2–5 yrs for top schools), GMAT/CAT, IELTS/TOEFL, essays + interviews. ROI is highest in the US &amp; India's top IIMs.</p>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-1">🌐 Other in-demand courses</h4>
+          <p class="text-slate-600 text-xs"><strong>Nursing</strong> (Australia, UK, Canada, Ireland — high demand), <strong>Data Science / IT</strong> (Canada, Germany, Australia), <strong>Aviation</strong> (UK, USA), <strong>Culinary</strong> (Switzerland, France), <strong>Film</strong> (UK, Canada). Check each country's skilled-occupation list — it affects your job chances after study.</p>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-1">📄 Universal document checklist</h4>
+          <p class="text-slate-600 text-xs">Passport (6+ months validity) · Offer letter · Funds proof (bank statements / education loan / GIC) · Language test (IELTS/TOEFL/PTE) · Entry test (NEET/GMAT/GRE/SAT as applicable) · Photographs · Health/TB certificate if required · Prior academic transcripts. <strong>Apply for the student visa only on the official portal</strong> — see our <a href="/guides.html#visa" class="text-blue-600 underline">Visa Guide</a>.</p>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-1">✈️ After the visa</h4>
+          <p class="text-slate-600 text-xs">Book a <strong>one-way student fare</strong> with extra baggage — tell us your intake date and route, and we'll find the student-rate ticket. Take: passport, visa, offer letter, IELTS, passport photos, medicines with prescriptions, adapter, and a little local cash.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TOURISM ================= -->
+    <section class="mt-14">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🌍 Dream Destinations — World &amp; India</h2>
+      <p class="text-sm text-slate-500 mb-6">Where the world goes — and the gems in your own country.</p>
+
+      <h3 class="font-bold text-brandBlue mb-3">World favourites</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🗼 Paris, France</span> <span class="text-slate-500">— Eiffel Tower, art, romance. 8–9h from Delhi.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🏝️ Bali, Indonesia</span> <span class="text-slate-500">— temples, beaches, villas. 6–7h from India, visa on arrival.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🗽 Dubai, UAE</span> <span class="text-slate-500">— Burj Khalifa, desert safaris, shopping. 3–4h, no pre-visa hassle.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🏖️ Maldives</span> <span class="text-slate-500">— overwater villas, honeymoons. 1.5–2h from South India, visa on arrival.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🏔️ Switzerland</span> <span class="text-slate-500">— Alps, Interlaken, scenic rail. Schengen visa.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🌸 Tokyo, Japan</span> <span class="text-slate-500">— cherry blossoms, tech, temples. 7–8h from Delhi.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🗽 New York, USA</span> <span class="text-slate-500">— skyline, Broadway, Central Park. ~15h direct.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🦁 Cape Town, South Africa</span> <span class="text-slate-500">— Table Mountain, safaris nearby. ~10–12h.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🏛️ Rome &amp; Santorini</span> <span class="text-slate-500">— history + the famous blue-domed Greek islands.</span></div>
+      </div>
+
+      <h3 class="font-bold text-brandBlue mt-8 mb-3">India — your own wonders</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🏔️ Kashmir</span> <span class="text-slate-500">— Gulmarg snow, Dal Lake, the paradise on earth.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🏖️ Goa</span> <span class="text-slate-500">— beaches, parties, old churches. 1h from Mumbai.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">💚 Kerala</span> <span class="text-slate-500">— backwaters, Munnar tea hills, Ayurveda.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🏜️ Rajasthan</span> <span class="text-slate-500">— Jaipur forts, Udaipur palaces, Jaisalmer desert.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">⛰️ Himachal</span> <span class="text-slate-500">— Manali, Shimla, Spiti — mountains for every budget.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🏝️ Andaman &amp; Nicobar</span> <span class="text-slate-500">— turquoise water, Radhanagar beach, Havelock.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🍃 Northeast</span> <span class="text-slate-500">— Meghalaya living bridges, Kaziranga, Shillong.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🛕 Varanasi &amp; Agra</span> <span class="text-slate-500">— ghats &amp; the Taj Mahal — India's soul and icon.</span></div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-4 card-hover"><span class="font-bold">🐪 Rann of Kutch</span> <span class="text-slate-500">— the white desert under a full moon. Unforgettable.</span></div>
+      </div>
+    </section>
+
+    <!-- ================= HAJJ & UMRAH ================= -->
+    <section class="mt-14">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-brandBlue mb-2">🕋 Hajj &amp; Umrah — Documents &amp; Steps</h2>
+      <p class="text-sm text-slate-500 mb-6">We don't arrange pilgrimages — but here's exactly what you need to do it right (verify current rules on the official platforms).</p>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-2">📄 Documents checklist</h4>
+          <ul class="text-slate-600 space-y-1.5 list-disc pl-4">
+            <li>Passport valid <strong>6+ months</strong> with blank pages</li>
+            <li>Saudi visa — via official channels only (Hajj: through approved Hajj committees/agents registered with the Ministry of Hajj; Umrah: e-visa/visa-on-arrival rules change — check current policy)</li>
+            <li><strong>Meningococcal (ACWY) vaccination certificate</strong> — mandatory, issued 10+ days before travel, valid 3 years</li>
+            <li>Other vaccinations per current Saudi/India health advisories (polio, COVID rules change)</li>
+            <li>Return ticket &amp; confirmed hotel/package booking</li>
+            <li>Funds/QR code for the Nusuk platform (official booking system)</li>
+            <li>Women under 45: check current mahram requirements</li>
+          </ul>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-xl p-5 card-hover">
+          <h4 class="font-bold text-brandBlue mb-2">🧭 Steps &amp; timing</h4>
+          <ul class="text-slate-600 space-y-1.5 list-disc pl-4">
+            <li><strong>Hajj:</strong> happens in Dhul-Hijjah (dates shift ~11 days earlier each year). Book 6–12 months ahead via approved channels.</li>
+            <li><strong>Umrah:</strong> year-round, usually 1–3 weeks stay. Book through the official <a href="https://www.nusuk.sa" target="_blank" rel="noopener" class="text-blue-600 underline">nusuk.sa</a> platform.</li>
+            <li>Visa platforms: <a href="https://visa.mofa.gov.sa" target="_blank" rel="noopener" class="text-blue-600 underline">visa.mofa.gov.sa</a> (official).</li>
+            <li>Fly via Jeddah (JED) or Madinah (MED) — we book your flights with generous baggage for Ihram essentials.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disclaimer + CTA -->
+    <div class="mt-12 bg-amber-50 border border-amber-300 rounded-xl p-4 text-sm text-amber-800">
+      ⚠️ <strong>Note:</strong> fares, timings, baggage rules, fees and visa rules change frequently. Everything above is typical guidance. Always verify on official airline, railway, university and government websites. Aurelia Tours &amp; Travels books flights &amp; trains — we don't process visas or pilgrimages.
+    </div>
+
+    <div class="mt-8 bg-gradient-to-r from-brandBlue to-brandNavy text-white rounded-2xl p-8 text-center shadow-xl border border-brandGold/20">
+      <h3 class="text-2xl font-extrabold mb-2">Read all that? Now let's get you there. ✈️</h3>
+      <p class="text-slate-300 text-sm mb-5">Tell us your route — flights, trains, student fares, group trips. We find the cheapest, you keep the cut.</p>
+      <a href="/" class="inline-block bg-gradient-to-r from-brandGold to-amber-500 text-slate-900 font-bold px-8 py-3.5 rounded-xl hover:brightness-95 transition text-lg shadow-lg">🔥 Request My Best Quote</a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brandNavy text-slate-400 py-6 text-center text-xs border-t border-brandGold/20">
+    <div class="max-w-6xl mx-auto px-4 space-y-1">
+      <p>&copy; 2026 Aurelia Tours &amp; Travels. Contact: +91 9323003681 | workkhalid1509@gmail.com</p>
+      <p><a href="/" class="hover:text-brandGold transition">Home</a> · <a href="/travelopedia.html" class="hover:text-brandGold transition">Travelopedia</a> · <a href="/guides.html" class="hover:text-brandGold transition">Passport &amp; Visa</a> · <a href="/contact.html" class="hover:text-brandGold transition">Contact</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/i18n.js"></script>
+</body>
+</html>
