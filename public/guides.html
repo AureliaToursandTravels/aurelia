@@ -166,6 +166,14 @@
           <option value="germany">🇩🇪 Germany (student)</option>
           <option value="ireland">🇮🇪 Ireland (student)</option>
           <option value="schengen">🇪🇺 Europe / Schengen</option>
+          <option value="singapore">🇸🇬 Singapore</option>
+          <option value="malaysia">🇲🇾 Malaysia</option>
+          <option value="thailand">🇹🇭 Thailand</option>
+          <option value="japan">🇯🇵 Japan</option>
+          <option value="korea">🇰🇷 South Korea</option>
+          <option value="china">🇨🇳 China</option>
+          <option value="newzealand">🇳🇿 New Zealand</option>
+          <option value="auswork">🇦🇺 Australia (work)</option>
         </select>
 
         <div id="visaInfo" class="mt-5 bg-slate-50 border border-slate-200 rounded-xl p-5 text-sm"></div>
@@ -228,6 +236,41 @@
           <p class="font-bold">🇩🇪 Germany — Student</p>
           <p class="text-xs text-slate-500 mb-2">Federal Foreign Office</p>
           <a href="https://www.auswaertiges-amt.de" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">auswaertiges-amt.de</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇸🇬 Singapore</p>
+          <p class="text-xs text-slate-500 mb-2">ICA — visit passes &amp; student passes</p>
+          <a href="https://www.ica.gov.sg" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">ica.gov.sg</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇲🇾 Malaysia</p>
+          <p class="text-xs text-slate-500 mb-2">Immigration Department — eVISA</p>
+          <a href="https://www.imi.gov.my" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">imi.gov.my</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇹🇭 Thailand</p>
+          <p class="text-xs text-slate-500 mb-2">Official e-Visa portal</p>
+          <a href="https://www.thaievisa.go.th" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">thaievisa.go.th</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇯🇵 Japan</p>
+          <p class="text-xs text-slate-500 mb-2">Ministry of Foreign Affairs</p>
+          <a href="https://www.mofa.go.jp" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">mofa.go.jp</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇰🇷 South Korea</p>
+          <p class="text-xs text-slate-500 mb-2">Korea Visa Portal</p>
+          <a href="https://www.visa.go.kr" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">visa.go.kr</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇨🇳 China</p>
+          <p class="text-xs text-slate-500 mb-2">China Visa Application Service Center</p>
+          <a href="https://www.visaforchina.org" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">visaforchina.org</a>
+        </div>
+        <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
+          <p class="font-bold">🇳🇿 New Zealand</p>
+          <p class="text-xs text-slate-500 mb-2">Immigration New Zealand</p>
+          <a href="https://www.immigration.govt.nz" target="_blank" rel="noopener" class="text-xs text-blue-600 underline">immigration.govt.nz</a>
         </div>
         <div class="card-hover bg-white border border-[#e6d9b8] rounded-xl p-4 shadow-sm">
           <p class="font-bold">🇪🇺 Europe / Schengen</p>
@@ -315,7 +358,15 @@
       australia: { title: '🇦🇺 Australia — Student visa (Subclass 500)', type: 'Student visa (500)', docs: 'Confirmation of Enrolment (CoE), OSHC health cover, funds, English test, biometrics', link: 'https://immi.homeaffairs.gov.au', linkLabel: 'immi.homeaffairs.gov.au (official)', note: 'You need a CoE from your institution before applying. Genuine Student (GS) requirements apply.' },
       germany: { title: '🇩🇪 Germany — Student visa', type: 'National visa for study', docs: 'Admission letter, blocked account (Sperrkonto), health insurance, APS certificate for some countries', link: 'https://www.auswaertiges-amt.de', linkLabel: 'auswaertiges-amt.de (Federal Foreign Office)', note: 'Germany requires a blocked account with ~€11,904/year as proof of funds. Apply at the German embassy/consulate in India.' },
       ireland: { title: '🇮🇪 Ireland — Study visa', type: 'Study visa (long stay D)', docs: 'Letter of acceptance, funds proof, tuition fee receipt, passport, biometrics', link: 'https://www.irishimmigration.ie', linkLabel: 'irishimmigration.ie (official)', note: 'Apply at the Irish embassy in New Delhi. Keep all receipts — border officers ask for them.' },
-      schengen: { title: '🇪🇺 Europe / Schengen (France, Italy, Germany, Netherlands...)', type: 'Schengen short-stay visa (Type C)', docs: 'Travel insurance (30,000€+), hotel bookings, flight itinerary, bank statements, passport', link: 'https://www.vfsglobal.com', linkLabel: 'vfsglobal.com (visa application centres)', note: 'Apply to the embassy of your MAIN country of stay. Appointments book out weeks ahead — plan early. VFS/TLS centres handle paperwork, embassies decide.' }
+      schengen: { title: '🇪🇺 Europe / Schengen (France, Italy, Germany, Netherlands...)', type: 'Schengen short-stay visa (Type C)', docs: 'Travel insurance (30,000€+), hotel bookings, flight itinerary, bank statements, passport', link: 'https://www.vfsglobal.com', linkLabel: 'vfsglobal.com (visa application centres)', note: 'Apply to the embassy of your MAIN country of stay. Appointments book out weeks ahead — plan early. VFS/TLS centres handle paperwork, embassies decide.' },
+      singapore: { title: '🇸🇬 Singapore', type: 'Short-term Visit Pass · Student\'s Pass (SOLAR+) · Work passes', docs: 'Passport (6+ months), return ticket, funds proof; students need university SOLAR+ registration', link: 'https://www.ica.gov.sg', linkLabel: 'ica.gov.sg (Immigration & Checkpoints Authority)', note: 'Many nationalities get visa-free entry for short visits. Students apply via the SOLAR+ system after admission. Work passes are employer-sponsored.' },
+      malaysia: { title: '🇲🇾 Malaysia', type: 'eVISA · Student pass (EMGS) · Work permit', docs: 'Passport, photo, return ticket, hotel/address proof; students via EMGS after offer letter', link: 'https://www.imi.gov.my', linkLabel: 'imi.gov.my (Immigration Department)', note: 'eVISA is fully online. Students: your university applies through EMGS (emgs.com.my). Verify on the official portal only.' },
+      thailand: { title: '🇹🇭 Thailand', type: 'Tourist e-Visa · Student visa (Non-ED) · Work permit', docs: 'Passport, photo, accommodation, funds; students need university admission letter', link: 'https://www.thaievisa.go.th', linkLabel: 'thaievisa.go.th (official e-Visa)', note: 'Tourist e-visa is online via the official portal. For study, get the Non-ED visa before flying — don\'t overstay tourist visas.' },
+      japan: { title: '🇯🇵 Japan', type: 'Short-term visa · Student visa (COE) · Work visa', docs: 'Passport, photo, itinerary, funds; students need a Certificate of Eligibility (COE)', link: 'https://www.mofa.go.jp', linkLabel: 'mofa.go.jp (Ministry of Foreign Affairs)', note: 'Apply at the Japanese embassy/consulate in India through an authorised visa centre. Students must have the COE issued before applying.' },
+      korea: { title: '🇰🇷 South Korea', type: 'Short-term visa (C-3) · Student (D-2) · Work', docs: 'Passport, photo, itinerary, bank statement; students need admission + visa issuance number', link: 'https://www.visa.go.kr', linkLabel: 'visa.go.kr (Korea Visa Portal)', note: 'Check the official visa portal for your visa type. Students: your school gives a visa issuance number to attach.' },
+      china: { title: '🇨🇳 China', type: 'Tourist (L) · Student (X) · Work (Z) visas', docs: 'Passport, photo, invitation/fee receipt, hotel booking; students need JW201/JW202 form from university', link: 'https://www.visaforchina.org', linkLabel: 'visaforchina.org (China Visa Application Service Center)', note: 'Apply through CVASC centres — appointments are required. Student (X) visas need the university\'s admission + JW form.' },
+      newzealand: { title: '🇳🇿 New Zealand', type: 'Visitor visa · Student visa · Work visa', docs: 'Passport, funds, return ticket; students need offer letter + evidence of funds & accommodation', link: 'https://www.immigration.govt.nz', linkLabel: 'immigration.govt.nz (official)', note: 'Apply online via Immigration NZ. Students must show funds for tuition + living costs (~NZD 20,000/year).' },
+      auswork: { title: '🇦🇺 Australia — Work visa', type: 'Temporary Skill Shortage (subclass 482) · Working Holiday', docs: 'Passport, sponsor (employer) nomination, skills assessment, English test, health checks', link: 'https://immi.homeaffairs.gov.au', linkLabel: 'immi.homeaffairs.gov.au (Home Affairs)', note: 'Work visas require an approved employer sponsor. Never pay an "agent" who promises a sponsor — genuine sponsorship is formal and verifiable.' }
     };
     function renderVisa(key) {
       const d = VISA_DATA[key];

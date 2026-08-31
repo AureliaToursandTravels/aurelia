@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const twilio = require('twilio');
@@ -10,8 +11,20 @@ const path = require('path');
 
 const app = express();
 
+// Security headers (blocks clickjacking, MIME sniffing, etc.).
+// CSP is disabled because the site loads Tailwind from a CDN.
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json());
 app.use(cors());
+
+// ---- Secret admin panel paths ----
+// The public admin URLs are hidden (404) so outsiders can't find the panel.
+// Your real admin panel lives at:  /<ADMIN_PATH>  and  /<ADMIN_PATH>/login
+const ADMIN_PATH = (process.env.ADMIN_PATH || 'admin').replace(/^\/|\/$/g, '');
+app.get(['/admin.html', '/admin-login.html', `/admin.html/${ADMIN_PATH}`], (req, res) => res.status(404).send('Not found'));
+app.get(`/${ADMIN_PATH}/login`, (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin-login.html')));
+app.get(`/${ADMIN_PATH}`, (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin.html')));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Database Connection
@@ -41,6 +54,7 @@ const RequestSchema = new mongoose.Schema({
   specialRequests: { type: String, default: '' },
   travelNumber: { type: String, default: '' },      // preferred flight/train number
   hearAbout: { type: String, default: '' },         // Google / Instagram / etc.
+  phoneCode: { type: String, default: '' },         // +91 / +971 / +966 ... country code
   // Deep preferences (round 2)
   baggage: { type: String, default: '' },           // flight: hand / 15kg / 20kg / 23kg
   seatPref: { type: String, default: '' },          // window / aisle / any
@@ -76,6 +90,17 @@ const mailTransporter = nodemailer.createTransport({
 let twilioClient = null;
 if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
   twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+}
+
+// Helper: price-check links for the ADMIN only (never sent to customers)
+function priceCheckLinks() {
+  return [
+    ['MakeMyTrip', 'https://www.makemytrip.com/flights/'],
+    ['Goibibo', 'https://www.goibibo.com/flights/'],
+    ['Google Flights', 'https://www.google.com/travel/flights'],
+    ['Yatra', 'https://www.yatra.com/flights'],
+    ['Cleartrip', 'https://www.cleartrip.com/flights']
+  ];
 }
 
 // WhatsApp Dispatcher Helper
@@ -120,7 +145,7 @@ const submitLimiter = rateLimit({
 // 1. Submit Request
 app.post('/api/submit', submitLimiter, async (req, res) => {
   try {
-    const { travelType, origin, destination, departureDate, returnDate, passengers, travelClass, userName, userEmail, userPhone, tripType, routeType, flexibleDates, preferredTime, alternatePhone, contactMethod, specialRequests, travelNumber, hearAbout, baggage, seatPref, mealPref, travelReason, stopPref, airlinePref, berthPref, trainType, quota, budget, urgency, paymentPref } = req.body;
+    const { travelType, origin, destination, departureDate, returnDate, passengers, travelClass, userName, userEmail, userPhone, tripType, routeType, flexibleDates, preferredTime, alternatePhone, contactMethod, specialRequests, travelNumber, hearAbout, baggage, seatPref, mealPref, travelReason, stopPref, airlinePref, berthPref, trainType, quota, budget, urgency, paymentPref, phoneCode } = req.body;
 
     if (!travelType || !origin || !destination || !departureDate || !userName || !userEmail || !userPhone) {
       return res.status(400).json({ error: 'Please provide all required fields.' });
@@ -157,7 +182,8 @@ app.post('/api/submit', submitLimiter, async (req, res) => {
       quota: quota || '',
       budget: budget || '',
       urgency: urgency || '',
-      paymentPref: paymentPref || ''
+      paymentPref: paymentPref || '',
+      phoneCode: phoneCode || ''
     });
 
     const adminLink = `${process.env.BASE_URL}/admin.html?id=${newRequest._id}`;
@@ -184,6 +210,8 @@ app.post('/api/submit', submitLimiter, async (req, res) => {
       ${hearAbout ? `<p><strong>Found via:</strong> ${hearAbout}</p>` : ''}
       ${specialRequests ? `<p><strong>Special requests:</strong> ${specialRequests}</p>` : ''}
       <hr/>
+      <p><strong>⚡ Check live prices (open 2-3, then quote the cheapest):</strong></p>
+      ${priceCheckLinks().map(([n, u]) => `<p style="margin:2px 0"><a href="${u}">${n}</a></p>`).join('')}
       <p><a href="${adminLink}">Click here to view in Admin Panel and Quote</a></p>
     `;
 
@@ -202,6 +230,26 @@ app.post('/api/submit', submitLimiter, async (req, res) => {
     const waText = `✈️ *New Request – Aurelia Tours & Travels*\nType: ${travelType.toUpperCase()}${routeType ? ` (${routeType})` : ''}\nFrom: ${origin} to ${destination}\nDate: ${new Date(departureDate).toDateString()}${returnDate ? `\nReturn: ${new Date(returnDate).toDateString()}` : ''}${preferredTime ? `\nTime: ${preferredTime}` : ''}\nPax: ${passengers} | ${travelClass}${urgency ? `\nUrgency: ${urgency}` : ''}${budget ? `\nBudget: ₹${budget}/pax` : ''}\nClient: ${userName} (${userPhone})\nContact pref: ${contactMethod || 'any'}\nReview: ${adminLink}`;
     sendWhatsApp(process.env.ADMIN_PRIMARY_PHONE, waText);
 
+    // Auto-confirmation email to the CUSTOMER (branded, no competitor links)
+    mailTransporter.sendMail({
+      from: `"Aurelia Tours & Travels" <${process.env.SMTP_USER}>`,
+      to: userEmail,
+      subject: `Request #${newRequest._id} received – Aurelia Tours & Travels`,
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #1e293b; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px;">
+          <h2 style="color: #0b2b5c; margin-top: 0;">Thank you, ${userName}! 🙏</h2>
+          <p>Your request <strong>#${newRequest._id}</strong> has been received. Here's what we got:</p>
+          <div style="background-color: #f8fafc; padding: 16px; border-radius: 6px; margin: 16px 0;">
+            <p style="margin: 0; font-size: 14px; color: #64748b;">${travelType.toUpperCase()} · ${origin} → ${destination}</p>
+            <p style="margin: 4px 0 0 0; font-size: 16px; font-weight: bold; color: #0b2b5c;">${new Date(departureDate).toDateString()}${returnDate ? ' → ' + new Date(returnDate).toDateString() : ''} · ${passengers} passenger(s) · ${travelClass}</p>
+          </div>
+          <p>Our travel experts are finding the best rate for you right now. We'll contact you on <strong>${userPhone}</strong> (${contactMethod || 'your preferred method'}) within <strong>30 minutes</strong> during working hours.</p>
+          <p>📞 Need us urgently? WhatsApp: <strong>+91 9323003681</strong> | <strong>+91 9011383313</strong></p>
+          <p style="font-size: 12px; color: #94a3b8; margin-top: 24px;">This is an automatic confirmation from Aurelia Tours &amp; Travels.</p>
+        </div>
+      `
+    }).catch(err => console.error('Customer confirmation email error:', err.message));
+
     res.status(201).json({ success: true, message: 'Request submitted successfully!', id: newRequest._id });
   } catch (error) {
     console.error('Submit error:', error);
@@ -209,8 +257,15 @@ app.post('/api/submit', submitLimiter, async (req, res) => {
   }
 });
 
+// Rate Limiter for Admin Login (blocks brute-force attacks)
+const adminLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  message: { error: 'Too many login attempts. Please wait 15 minutes and try again.' }
+});
+
 // 2. Admin Auth
-app.post('/api/admin/login', (req, res) => {
+app.post('/api/admin/login', adminLimiter, (req, res) => {
   const { username, password } = req.body;
   if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
     const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: '12h' });

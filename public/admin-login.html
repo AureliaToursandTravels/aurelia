@@ -38,7 +38,9 @@
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem('aurelia_token', data.token);
-        window.location.href = '/admin.html';
+        // This page lives at /<secret-path>/login — admin panel is at /<secret-path>
+        const base = window.location.pathname.replace(/\/login\/?$/, '') || '/';
+        window.location.href = base;
       } else {
         const err = document.getElementById('err');
         err.innerText = data.error;

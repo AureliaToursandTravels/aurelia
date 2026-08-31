@@ -395,7 +395,33 @@
               </div>
               <div>
                 <label class="block text-xs font-semibold uppercase text-slate-600 mb-1" for="userPhone">WhatsApp / Phone <span class="text-red-500">*</span></label>
-                <input type="tel" id="userPhone" required placeholder="+91 9876543210" class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+                <div class="flex gap-1.5">
+                  <select id="phoneCode" class="w-28 px-2 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none bg-white text-sm">
+                    <option value="+91" selected>🇮🇳 +91</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+966">🇸🇦 +966</option>
+                    <option value="+974">🇶🇦 +974</option>
+                    <option value="+965">🇰🇼 +965</option>
+                    <option value="+968">🇴🇲 +968</option>
+                    <option value="+973">🇧🇭 +973</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+61">🇦🇺 +61</option>
+                    <option value="+49">🇩🇪 +49</option>
+                    <option value="+65">🇸🇬 +65</option>
+                    <option value="+60">🇲🇾 +60</option>
+                    <option value="+66">🇹🇭 +66</option>
+                    <option value="+81">🇯🇵 +81</option>
+                    <option value="+82">🇰🇷 +82</option>
+                    <option value="+86">🇨🇳 +86</option>
+                    <option value="+64">🇳🇿 +64</option>
+                    <option value="+92">🇵🇰 +92</option>
+                    <option value="+880">🇧🇩 +880</option>
+                    <option value="+977">🇳🇵 +977</option>
+                    <option value="+94">🇱🇰 +94</option>
+                  </select>
+                  <input type="tel" id="userPhone" required placeholder="9876543210" class="flex-1 px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+                </div>
                 <p class="field-error hidden text-xs text-red-500 mt-1">Please enter a valid phone number.</p>
               </div>
               <div>
@@ -610,6 +636,21 @@
       </div>
     </section>
 
+    <!-- ============ BOOK DIRECT & SUPPORT AURELIA (affiliate strip) ============ -->
+    <section class="mt-16">
+      <div class="bg-white border border-[#e6d9b8] rounded-3xl p-8 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <div>
+            <p class="text-brandGold text-xs font-bold tracking-[0.3em] uppercase mb-1">Same prices. Supporting a small business.</p>
+            <h2 class="text-2xl font-extrabold text-brandBlue">Book directly through our partner links</h2>
+          </div>
+          <span class="text-xs text-slate-400">Every booking through our links supports Aurelia</span>
+        </div>
+        <div id="affiliateButtons" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+        <p id="affiliateNote" class="text-xs text-slate-400 mt-4"></p>
+      </div>
+    </section>
+
     <!-- ============ PASSPORT & VISA HELP CENTER ============ -->
     <section class="mt-16">
       <div class="bg-gradient-to-br from-brandBlue to-brandNavy text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-brandGold/20 relative overflow-hidden">
@@ -661,6 +702,337 @@
   <!-- Toast notification -->
   <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-slate-900/95 text-white text-sm px-5 py-3 rounded-xl shadow-2xl transition-opacity duration-300 opacity-0 pointer-events-none flex items-center gap-2 max-w-[90vw]"></div>
 
+  <script>
+    // ---------- Helpers ----------
+    const $ = id => document.getElementById(id);
+    const state = {
+      type: 'flight',
+      routeType: 'domestic',
+      trip: 'oneway',
+      time: '',
+      contactMethod: 'WhatsApp',
+      pax: 1,
+      seatPref: '', mealPref: '', travelReason: '', stopPref: '', baggage: '',
+      berthPref: '', trainType: '', quota: '', urgency: '', paymentPref: ''
+    };
+
+    // ---------- Style helpers ----------
+    function selectCard(el, active) {
+      el.classList.toggle('border-brandBlue', active);
+      el.classList.toggle('bg-brandBlue', active);
+      el.classList.toggle('text-white', active);
+      el.classList.toggle('border-slate-200', !active);
+      el.classList.toggle('bg-white', !active);
+      el.classList.toggle('shadow-lg', active);
+      el.classList.toggle('scale-[1.02]', active);
+    }
+    function selectPill(el, active) {
+      if (!el) return;
+      el.classList.toggle('border-brandBlue', active);
+      el.classList.toggle('bg-brandBlue', active);
+      el.classList.toggle('text-white', active);
+      el.classList.toggle('border-slate-200', !active);
+      el.classList.toggle('bg-white', !active);
+      el.classList.toggle('text-slate-600', !active);
+    }
+
+    // ---------- Generic chip groups ----------
+    function makeChipGroup(sel, stateKey, allowClear = true) {
+      document.querySelectorAll(sel).forEach(chip => {
+        chip.addEventListener('click', () => {
+          const wasActive = chip.classList.contains('bg-brandBlue');
+          document.querySelectorAll(sel).forEach(c => selectPill(c, false));
+          if (wasActive && allowClear) { state[stateKey] = ''; }
+          else { selectPill(chip, true); state[stateKey] = chip.dataset.value; }
+          updateSummary();
+        });
+      });
+    }
+    makeChipGroup('.time-chip', 'time');
+    makeChipGroup('.seat-chip', 'seatPref');
+    makeChipGroup('.meal-chip', 'mealPref');
+    makeChipGroup('.reason-chip', 'travelReason');
+    makeChipGroup('.stop-chip', 'stopPref');
+    makeChipGroup('.baggage-chip', 'baggage');
+    makeChipGroup('.berth-chip', 'berthPref');
+    makeChipGroup('.traintype-chip', 'trainType');
+    makeChipGroup('.quota-chip', 'quota');
+    makeChipGroup('.urgency-chip', 'urgency');
+    makeChipGroup('.pay-chip', 'paymentPref');
+    makeChipGroup('.contact-chip', 'contactMethod', false);
+
+    // ---------- Travel type ----------
+    function setType(t) {
+      state.type = t;
+      selectCard($('cardFlight'), t === 'flight');
+      selectCard($('cardTrain'), t === 'train');
+      $('flightPrefs').classList.toggle('hidden', t !== 'flight');
+      $('trainPrefs').classList.toggle('hidden', t !== 'train');
+      if (t === 'train') { state.routeType = ''; selectPill($('subDomestic'), false); selectPill($('subInternational'), false); }
+      $('travelClass').innerHTML = t === 'train'
+        ? '<option value="Sleeper (SL)">Sleeper (SL)</option><option value="3 AC (3A)">3 AC (3A)</option><option value="2 AC (2A)">2 AC (2A)</option><option value="1 AC (1A)">1 AC (1A)</option><option value="Chair Car (CC)">Chair Car (CC)</option>'
+        : '<option value="Economy">Economy</option><option value="Premium Economy">Premium Economy</option><option value="Business">Business</option>';
+      updateSummary();
+    }
+    $('cardFlight').addEventListener('click', () => setType('flight'));
+    $('cardTrain').addEventListener('click', () => setType('train'));
+
+    function setRouteType(v) {
+      state.routeType = v;
+      selectPill($('subDomestic'), v === 'domestic');
+      selectPill($('subInternational'), v === 'international');
+      updateSummary();
+    }
+    $('subDomestic').addEventListener('click', () => setRouteType('domestic'));
+    $('subInternational').addEventListener('click', () => setRouteType('international'));
+
+    // ---------- Trip type ----------
+    function setTrip(v) {
+      state.trip = v;
+      selectPill($('tripOneway'), v === 'oneway');
+      selectPill($('tripRoundtrip'), v === 'roundtrip');
+      $('returnWrap').classList.toggle('hidden', v !== 'roundtrip');
+      if (v !== 'roundtrip') $('returnDate').value = '';
+      updateSummary();
+    }
+    $('tripOneway').addEventListener('click', () => setTrip('oneway'));
+    $('tripRoundtrip').addEventListener('click', () => setTrip('roundtrip'));
+
+    // ---------- Passenger stepper ----------
+    function setPax(delta) {
+      state.pax = Math.min(10, Math.max(1, state.pax + delta));
+      $('paxCount').textContent = state.pax;
+      updateSummary();
+    }
+    $('paxMinus').addEventListener('click', () => setPax(-1));
+    $('paxPlus').addEventListener('click', () => setPax(1));
+
+    // ---------- Extra inputs ----------
+    ['origin','destination','departureDate','returnDate','userName','userEmail','userPhone','travelNumber','budget','airlinePref','altPhone','specialRequests','hearAbout','phoneCode']
+      .forEach(id => $(id).addEventListener('input', updateSummary));
+    $('flexibleDates').addEventListener('change', updateSummary);
+
+    // ---------- Live summary + progress ----------
+    function progress() {
+      const required = ['origin','destination','departureDate','userName','userEmail','userPhone'];
+      if (state.trip === 'roundtrip') required.push('returnDate');
+      const done = required.filter(id => $(id).value.trim() !== '').length;
+      const optional = [
+        state.time, state.seatPref, state.mealPref, state.travelReason, state.stopPref,
+        state.baggage, state.airlinePref, state.berthPref, state.trainType, state.quota,
+        state.urgency, state.paymentPref, state.budget, $('travelNumber').value.trim(),
+        $('specialRequests').value.trim(), $('hearAbout').value, $('altPhone').value.trim(),
+        $('flexibleDates').checked
+      ].filter(Boolean).length;
+      const total = required.length + optional;
+      const pct = Math.round((done + optional) / total * 100);
+      $('progBar').style.width = pct + '%';
+      $('progPct').textContent = pct + '%';
+    }
+    function updateSummary() {
+      $('sumType').textContent = state.type === 'flight'
+        ? '✈️ Flight' + (state.routeType ? ' · ' + state.routeType.charAt(0).toUpperCase() + state.routeType.slice(1) : '')
+        : '🚆 Train';
+      const o = $('origin').value.trim() || '—', d = $('destination').value.trim() || '—';
+      $('sumRoute').textContent = o + ' → ' + d;
+      const dep = $('departureDate').value, ret = $('returnDate').value;
+      $('sumDates').textContent = dep ? (state.trip === 'roundtrip' ? dep + ' ⇄ ' + (ret || '?') : dep) : '—';
+      $('sumPax').textContent = state.pax + ' · ' + $('travelClass').value;
+      const name = $('userName').value.trim(), ph = $('userPhone').value.trim();
+      $('sumContact').textContent = (name ? name.split(' ')[0] : '—') + (ph ? ' · ' + ph : '');
+      $('sumBudget').textContent = $('budget').value ? '₹' + $('budget').value + '/pax' : '—';
+      $('sumUrgency').textContent = state.urgency || '—';
+      progress();
+    }
+
+    // ---------- Validation ----------
+    function setError(id, show) {
+      const input = $(id);
+      input.classList.toggle('border-red-400', show);
+      input.nextElementSibling.classList.toggle('hidden', !show);
+    }
+    function validate() {
+      let ok = true;
+      const pairs = [
+        ['origin', () => $('origin').value.trim() !== ''],
+        ['destination', () => $('destination').value.trim() !== ''],
+        ['departureDate', () => !!$('departureDate').value],
+        ['userName', () => $('userName').value.trim() !== ''],
+        ['userEmail', () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('userEmail').value.trim())],
+        ['userPhone', () => /^\+?[0-9\s\-]{8,15}$/.test($('userPhone').value.trim())]
+      ];
+      pairs.forEach(([id, fn]) => { const good = fn(); setError(id, !good); if (!good) ok = false; });
+      return ok;
+    }
+    ['origin','destination','departureDate','userName','userEmail','userPhone'].forEach(id =>
+      $(id).addEventListener('blur', validate));
+
+    // ---------- Toast ----------
+    let toastTimer;
+    function showToast(msg) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.classList.remove('opacity-0', 'pointer-events-none');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.add('opacity-0', 'pointer-events-none'), 3500);
+    }
+
+    // ---------- Destination desks (pre-fill form) ----------
+    function pickCategory(dest, label) {
+      setType('flight');
+      setRouteType('international');
+      $('destination').value = dest;
+      $('destination').classList.remove('flash');
+      void $('destination').offsetWidth;
+      $('destination').classList.add('flash');
+      $('destination').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      $('destination').focus();
+      updateSummary();
+      showToast('🌍 ' + label + ' — destination set! Add your dates & contact below.');
+    }
+    document.querySelectorAll('.cat-card').forEach(card => {
+      card.addEventListener('click', () => pickCategory(card.dataset.dest, card.dataset.label));
+    });
+
+    // ---------- Confetti ----------
+    function confetti() {
+      const colors = ['#f9a826', '#0b2b5c', '#22c55e', '#ef4444', '#3b82f6', '#a855f7'];
+      for (let i = 0; i < 70; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti-piece';
+        c.style.left = Math.random() * 100 + 'vw';
+        c.style.background = colors[i % colors.length];
+        c.style.animationDuration = (2 + Math.random() * 2.5) + 's';
+        c.style.animationDelay = (Math.random() * 0.8) + 's';
+        c.style.width = c.style.height = (6 + Math.random() * 6) + 'px';
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 6000);
+      }
+    }
+
+    // ---------- Submit ----------
+    $('bookingForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validate()) { showToast('⚠️ Please fill the highlighted fields.'); return; }
+      const btn = $('submitBtn');
+      btn.disabled = true;
+      btn.innerText = 'Submitting...';
+
+      const rawPhone = $('userPhone').value.trim();
+      const payload = {
+        travelType: state.type,
+        routeType: state.type === 'flight' ? state.routeType : '',
+        tripType: state.trip,
+        origin: $('origin').value.trim(),
+        destination: $('destination').value.trim(),
+        departureDate: $('departureDate').value,
+        returnDate: state.trip === 'roundtrip' ? $('returnDate').value : '',
+        flexibleDates: $('flexibleDates').checked,
+        preferredTime: state.time,
+        passengers: state.pax,
+        travelClass: $('travelClass').value,
+        travelNumber: $('travelNumber').value.trim(),
+        stopPref: state.stopPref,
+        baggage: state.baggage,
+        seatPref: state.seatPref,
+        airlinePref: $('airlinePref').value,
+        berthPref: state.berthPref,
+        trainType: state.trainType,
+        quota: state.quota,
+        mealPref: state.mealPref,
+        travelReason: state.travelReason,
+        budget: $('budget').value,
+        urgency: state.urgency,
+        paymentPref: state.paymentPref,
+        userName: $('userName').value.trim(),
+        userEmail: $('userEmail').value.trim(),
+        userPhone: rawPhone && !rawPhone.startsWith('+') ? $('phoneCode').value + ' ' + rawPhone : rawPhone,
+        phoneCode: $('phoneCode').value,
+        alternatePhone: $('altPhone').value.trim(),
+        contactMethod: state.contactMethod,
+        specialRequests: $('specialRequests').value.trim(),
+        hearAbout: $('hearAbout').value
+      };
+
+      try {
+        const res = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (res.ok) {
+          showSuccess(payload);
+        } else {
+          throw new Error(data.error || 'Submission failed');
+        }
+      } catch (err) {
+        showToast('⚠️ Something went wrong: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = '🔥 Request My Best Quote';
+      }
+    });
+
+    // ---------- Success panel ----------
+    function fmtDate(v) {
+      if (!v) return '';
+      const d = new Date(v + 'T00:00:00');
+      return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+    function showSuccess(p) {
+      const rows = [
+        ['Booking', (p.travelType === 'flight' ? '✈️ Flight' : '🚆 Train') + (p.routeType ? ' (' + p.routeType + ')' : '')],
+        ['Trip', p.tripType === 'roundtrip' ? 'Round Trip' : 'One Way'],
+        ['Route', p.origin + ' → ' + p.destination],
+        ['Departure', fmtDate(p.departureDate)],
+        ['Return', fmtDate(p.returnDate) || '—'],
+        ['Passengers', p.passengers + ' · ' + p.travelClass],
+        ['Preferred time', p.preferredTime || '—'],
+        ['Budget', p.budget ? '₹' + p.budget + '/person' : '—'],
+        ['Urgency', p.urgency || '—'],
+        ['Your name', p.userName],
+        ['Your phone', p.userPhone],
+        ['Your email', p.userEmail],
+        ['Contact method', p.contactMethod],
+        ['Special requests', p.specialRequests || '—']
+      ];
+      $('successRecap').innerHTML = rows.map(([k, v]) =>
+        `<div class="flex justify-between gap-4"><span class="text-slate-500">${k}</span><span class="font-semibold text-right">${v}</span></div>`
+      ).join('');
+      $('bookingForm').classList.add('hidden');
+      $('successPanel').classList.remove('hidden');
+      $('successPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      confetti();
+    }
+    $('newRequestBtn').addEventListener('click', () => {
+      $('bookingForm').reset();
+      $('successPanel').classList.add('hidden');
+      $('bookingForm').classList.remove('hidden');
+      state.pax = 1; $('paxCount').textContent = '1';
+      document.querySelectorAll('.time-chip, .stop-chip, .baggage-chip, .seat-chip, .meal-chip, .reason-chip, .berth-chip, .traintype-chip, .quota-chip, .urgency-chip, .pay-chip')
+        .forEach(el => selectPill(el, false));
+      setType('flight');
+      setRouteType('domestic');
+      setTrip('oneway');
+      selectPill(document.querySelector('.contact-chip'), true);
+      state.contactMethod = 'WhatsApp';
+      document.querySelectorAll('.field-error').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('input,select,textarea').forEach(el => el.classList.remove('border-red-400'));
+      updateSummary();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ---------- Init ----------
+    setType('flight');
+    setRouteType('domestic');
+    setTrip('oneway');
+    selectPill(document.querySelector('.contact-chip'), true);
+    updateSummary();
+  </script>
+
+  <script src="/js/affiliates.js"></script>
+  <script src="/js/assistant.js"></script>
   <script src="/js/i18n.js"></script>
 </body>
 </html>

@@ -36,6 +36,29 @@
       <button onclick="loadRequests()" class="bg-slate-200 px-4 py-2 rounded text-sm font-medium hover:bg-slate-300">Refresh Data</button>
     </div>
 
+    <!-- Price-Check Sources (find the cheapest fare before quoting) -->
+    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 mb-6">
+      <button onclick="toggleSources()" class="w-full flex justify-between items-center text-sm font-bold text-slate-700">
+        <span>🔎 Price-Check Sources — open these to find the cheapest fare, then quote your own price</span>
+        <span id="srcToggle">▾</span>
+      </button>
+      <div id="priceSources" class="hidden mt-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 text-xs">
+        <a href="https://www.makemytrip.com/flights/" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🟠 MakeMyTrip</a>
+        <a href="https://www.goibibo.com/flights/" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🔷 Goibibo</a>
+        <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🔵 Google Flights</a>
+        <a href="https://www.skyscanner.co.in/flights" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🔍 Skyscanner</a>
+        <a href="https://www.cleartrip.com/flights" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🧭 Cleartrip</a>
+        <a href="https://www.yatra.com/flights" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🛫 Yatra</a>
+        <a href="https://www.ixigo.com/flights" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">💠 Ixigo</a>
+        <a href="https://www.easemytrip.com/flights" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🟢 EaseMyTrip</a>
+        <a href="https://www.goibibo.com/flights/" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🔷 Goibibo</a>
+        <a href="https://www.trip.com/flights/" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🌏 Trip.com</a>
+        <a href="https://www.expedia.co.in/flights" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🌐 Expedia</a>
+        <a href="https://www.kayak.co.in/flights" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🩵 Kayak</a>
+        <a href="https://www.irctc.co.in" target="_blank" rel="noopener" class="border border-slate-200 rounded-lg px-3 py-2 hover:border-brandBlue hover:bg-slate-50">🚆 IRCTC (trains)</a>
+      </div>
+    </div>
+
     <!-- Requests Table -->
     <div class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-x-auto">
       <table class="w-full text-left border-collapse text-sm">
@@ -63,10 +86,9 @@
       <h3 class="text-lg font-bold text-slate-800">Dispatch Price Quote</h3>
       <input type="hidden" id="modalRequestId">
       <div>
-        <label class="block text-xs font-semibold text-slate-600 mb-1">Commission Amount (₹)</label>
-        <select id="modalCommission" class="w-full border p-2 rounded">
-          <!-- Populated dynamically based on type -->
-        </select>
+        <label class="block text-xs font-semibold text-slate-600 mb-1">Your Cut / Commission (₹) <span class="font-normal text-slate-400">— auto-suggested, edit freely</span></label>
+        <input type="number" id="modalCommission" required min="0" class="w-full border p-2 rounded" value="0">
+        <p class="text-[11px] text-slate-400 mt-1">Suggestion: domestic flight ₹100 · international ₹300 · train ₹20–40 · premium class +55%</p>
       </div>
       <div>
         <label class="block text-xs font-semibold text-slate-600 mb-1">Final Total Quote Price (₹)</label>
@@ -85,9 +107,25 @@
 
   <script>
     const token = localStorage.getItem('aurelia_token');
-    if (!token) window.location.href = '/admin-login.html';
+    // This page is served at /<secret-path> — login is at /<secret-path>/login
+    const adminBase = window.location.pathname;
+    if (!token) window.location.href = adminBase + '/login';
 
     let currentRequests = [];
+
+    // Escape user input before rendering (blocks script injection)
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function comparePrices(site) {
+      const urls = {
+        mmt: 'https://www.makemytrip.com/flights/',
+        goibibo: 'https://www.goibibo.com/flights/',
+        google: 'https://www.google.com/travel/flights'
+      };
+      window.open(urls[site] || urls.mmt, '_blank');
+    }
 
     async function loadRequests() {
       const status = document.getElementById('statusFilter').value;
@@ -106,10 +144,10 @@
         const tr = document.createElement('tr');
         tr.className = 'hover:bg-slate-50';
         tr.innerHTML = `
-          <td class="p-3 font-semibold uppercase text-xs">${req.travelType === 'flight' ? '✈️ Flight' : '🚆 Train'}${req.routeType ? `<br/><span class="text-slate-400 normal-case">${req.routeType}</span>` : ''}</td>
-          <td class="p-3">${req.origin} &rarr; ${req.destination}<br/><span class="text-xs text-slate-500">${req.travelClass} (${req.passengers} Pax)${req.tripType ? ` · ${req.tripType === 'roundtrip' ? '⇄ Round Trip' : 'One Way'}` : ''}${req.preferredTime ? ` · ${req.preferredTime.split(' ')[0]}` : ''}${req.flexibleDates ? ' · 🔄 Flexible' : ''}${req.travelNumber ? ` · #${req.travelNumber}` : ''}</span>${req.specialRequests ? `<br/><span class="text-xs text-amber-600">📝 ${req.specialRequests}</span>` : ''}</td>
+          <td class="p-3 font-semibold uppercase text-xs">${req.travelType === 'flight' ? '✈️ Flight' : '🚆 Train'}${req.routeType ? `<br/><span class="text-slate-400 normal-case">${esc(req.routeType)}</span>` : ''}</td>
+          <td class="p-3">${esc(req.origin)} &rarr; ${esc(req.destination)}<br/><span class="text-xs text-slate-500">${esc(req.travelClass)} (${req.passengers} Pax)${req.tripType ? ` · ${req.tripType === 'roundtrip' ? '⇄ Round Trip' : 'One Way'}` : ''}${req.preferredTime ? ` · ${esc(req.preferredTime.split(' ')[0])}` : ''}${req.flexibleDates ? ' · 🔄 Flexible' : ''}${req.travelNumber ? ` · #${esc(req.travelNumber)}` : ''}${req.stopPref ? ` · ${esc(req.stopPref)}` : ''}${req.baggage ? ` · ${esc(req.baggage)}` : ''}${req.berthPref ? ` · ${esc(req.berthPref)}` : ''}${req.trainType ? ` · ${esc(req.trainType)}` : ''}${req.quota ? ` · ${esc(req.quota)}` : ''}</span>${req.specialRequests ? `<br/><span class="text-xs text-amber-600">📝 ${esc(req.specialRequests)}</span>` : ''}</td>
           <td class="p-3 text-xs">${new Date(req.departureDate).toLocaleDateString()}${req.returnDate ? `<br/>Ret: ${new Date(req.returnDate).toLocaleDateString()}` : ''}</td>
-          <td class="p-3"><strong>${req.userName}</strong><br/><a href="tel:${req.userPhone}" class="text-xs text-blue-600">${req.userPhone}</a><br/><a href="mailto:${req.userEmail}" class="text-xs text-slate-500">${req.userEmail}</a>${req.contactMethod ? `<br/><span class="text-xs text-green-600 font-medium">Pref: ${req.contactMethod}</span>` : ''}${req.alternatePhone ? `<br/><span class="text-xs text-slate-500">Alt: ${req.alternatePhone}</span>` : ''}${req.hearAbout ? `<br/><span class="text-xs text-slate-400">via ${req.hearAbout}</span>` : ''}</td>
+          <td class="p-3"><strong>${esc(req.userName)}</strong><br/><a href="tel:${esc(req.userPhone)}" class="text-xs text-blue-600">${esc(req.userPhone)}</a><br/><a href="mailto:${esc(req.userEmail)}" class="text-xs text-slate-500">${esc(req.userEmail)}</a>${req.contactMethod ? `<br/><span class="text-xs text-green-600 font-medium">Pref: ${esc(req.contactMethod)}</span>` : ''}${req.alternatePhone ? `<br/><span class="text-xs text-slate-500">Alt: ${esc(req.alternatePhone)}</span>` : ''}${req.hearAbout ? `<br/><span class="text-xs text-slate-400">via ${esc(req.hearAbout)}</span>` : ''}</td>
           <td class="p-3">
             <span class="px-2 py-0.5 rounded text-xs font-semibold ${
               req.status === 'pending' ? 'bg-amber-100 text-amber-800' :
@@ -120,6 +158,8 @@
           </td>
           <td class="p-3 text-xs">${req.quotePrice ? `₹${req.quotePrice} <span class="text-slate-400">(+₹${req.commission})</span>` : '-'}</td>
           <td class="p-3 flex gap-2">
+            <button onclick="comparePrices('mmt')" class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded text-xs font-semibold">MMT</button>
+            <button onclick="comparePrices('goibibo')" class="bg-sky-500 hover:bg-sky-600 text-white px-2 py-1 rounded text-xs font-semibold">Goibibo</button>
             <button onclick="openQuoteModal('${req._id}')" class="bg-amber-400 hover:bg-amber-500 text-slate-900 px-2.5 py-1 rounded text-xs font-semibold">Quote</button>
             <select onchange="updateStatus('${req._id}', this.value)" class="text-xs border rounded p-1">
               <option value="">Status...</option>
@@ -132,20 +172,42 @@
       });
     }
 
+    // Auto-suggest the owner's cut (commission) based on route + class
+    // Rules: domestic flight ₹100 · international ₹300 · train ₹20 (intra) / ₹40 (inter)
+    //        premium classes multiply: ×1.25, top class ×1.55 — all editable in the modal
+    function suggestedCommission(req) {
+      const cls = String(req.travelClass || '').toLowerCase();
+      let base = 100, mult = 1;
+      if (req.travelType === 'train') {
+        base = 20; // intra-state default; bump to 40 manually for inter-state
+        if (cls.includes('3 ac') || cls.includes('3a')) mult = 1.25;
+        else if (cls.includes('2 ac') || cls.includes('2a')) mult = 1.4;
+        else if (cls.includes('1 ac') || cls.includes('1a')) mult = 1.55;
+        else if (cls.includes('chair')) mult = 1.15;
+      } else {
+        base = (req.routeType === 'international') ? 300 : 100;
+        if (cls.includes('premium')) mult = 1.25;
+        else if (cls.includes('business')) mult = 1.55;
+      }
+      return Math.round(base * mult / 5) * 5;
+    }
     function openQuoteModal(id) {
       const item = currentRequests.find(r => r._id === id);
       if (!item) return;
       document.getElementById('modalRequestId').value = id;
-      const commSelect = document.getElementById('modalCommission');
-      commSelect.innerHTML = item.travelType === 'train'
-        ? '<option value="10">₹10</option><option value="20">₹20</option><option value="30">₹30</option>'
-        : '<option value="100">₹100</option><option value="110">₹110</option><option value="120">₹120</option>';
+      document.getElementById('modalCommission').value = item.commission || suggestedCommission(item);
       document.getElementById('modalQuotePrice').value = item.quotePrice || '';
       document.getElementById('quoteModal').classList.remove('hidden');
     }
 
     function closeModal() {
       document.getElementById('quoteModal').classList.add('hidden');
+    }
+
+    function toggleSources() {
+      const box = document.getElementById('priceSources');
+      box.classList.toggle('hidden');
+      document.getElementById('srcToggle').textContent = box.classList.contains('hidden') ? '▸' : '▾';
     }
 
     async function submitQuote() {
@@ -180,7 +242,7 @@
 
     function logout() {
       localStorage.removeItem('aurelia_token');
-      window.location.href = '/admin-login.html';
+      window.location.href = adminBase + '/login';
     }
 
     loadRequests();

@@ -281,4 +281,66 @@ Important truth: a brand-new small site cannot outrank big travel sites for gene
 - [ ] Search Console: property verified, sitemap submitted, homepage indexed
 - [ ] Google Business Profile created (for local "Aurelia" searches)
 
+---
+
+## PART 11 — Earn a cut on bookings (affiliate links)
+
+Your site already shows **"Book directly through our partner links"** buttons (Trip.com, Cleartrip, Skyscanner). Customers pay the **same price** — and if the links carry your affiliate ID, **you earn a commission** on every booking.
+
+To activate earning:
+
+1. **Join the free affiliate programs** (each takes ~10 min, approval is usually automatic):
+   - Trip.com Affiliate — search "Trip.com affiliate program"
+   - Cleartrip Affiliate — search "Cleartrip affiliate program"
+   - Skyscanner Partners — search "Skyscanner partners programme"
+2. Each program gives you a **tracking ID** (a code/parameter for your links).
+3. Open `public/js/affiliates.js` and **paste each ID** into the matching `trackingId: ''` field (the file has clear `<!-- -->` comments).
+4. Push the change to GitHub (`git add . && git commit -m "affiliate ids" && git push`) — Render auto-redeploys.
+5. The homepage buttons now carry your tracking — every booking through them pays you. Check each program's dashboard for earnings.
+
+> ⚠️ Each program has its own exact link format/parameter. Follow the instructions they email you; if a program needs a different parameter than shown in the file, replace the whole `homeUrl` with their official generated link.
+
+Also built-in for you: every new enquiry email includes **MakeMyTrip, Goibibo and Google Flights price-check links**, and the admin panel has **MMT / Goibibo buttons** next to each request plus a 12-site **Price-Check Sources** panel. Customers only ever receive branded Aurelia confirmations — no competitor links.
+
+---
+
+## PART 12 — SECURITY & HOW TO ACCESS YOUR ADMIN PANEL
+
+Your site is protected so outsiders **cannot** find or break into the admin panel:
+
+| Protection | What it does |
+|---|---|
+| 🔒 **Secret admin URL** | `/admin.html` and `/admin-login.html` now return **404 (Not Found)** — outsiders can't even find the panel. Your panel lives at a private address (below). |
+| 🔑 **Strong password** | A new, unguessable admin password was generated — the old weak one no longer works. |
+| 🧪 **Brute-force blocker** | After **5 wrong login attempts**, the system locks out that address for **15 minutes**. |
+| 🛡️ **Security headers** | Clickjacking, MIME-sniffing and other web attacks are blocked. |
+| ✂️ **Input protection** | Anything a visitor types is cleaned before it appears in your admin panel — no script injection. |
+
+### Your admin access (SAVE THIS!)
+
+- **Admin URL:** `https://YOUR-SITE.com/aurelia-admin-b4b544` (login page: add `/login`)
+- **Username:** `admin`
+- **Password:** `rL3pfaUp2NxJ0Y`
+
+> ⚠️ When you deploy to Render (Part 6), these exact values must be copied into Render's environment variables: `ADMIN_PATH`, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `JWT_SECRET` — otherwise the panel won't be where you expect.
+>
+> 🔁 Want a new password later? Ask me to generate fresh ones, or change them yourself in `.env` (and in Render). Never share these with anyone.
+
+---
+
+## PART 13 — YOUR CUT (commission engine)
+
+When you open the **Quote** box for any request, your cut is **auto-suggested** (you can edit it):
+
+| Booking | Base cut | Premium class |
+|---|---|---|
+| Domestic flight | ₹100 | Premium Economy ×1.25 · Business ×1.55 |
+| International flight | ₹300 | Premium Economy ×1.25 · Business ×1.55 |
+| Train (same state) | ₹20 | 3A ×1.25 · 2A ×1.40 · 1A ×1.55 · CC ×1.15 |
+| Train (inter-state) | ₹40 (edit manually) | same multipliers |
+
+Example: an international Business-class flight suggests ₹300 × 1.55 = ₹465. Everything is editable in the modal — it's a suggestion, not a rule.
+
+**Where to find the cheapest fare before quoting:** your admin panel has a **"Price-Check Sources"** panel with one-tap links to MakeMyTrip, Goibibo, Google Flights, Skyscanner, Cleartrip, Yatra, Ixigo, EaseMyTrip, Trip.com, Expedia, Kayak and IRCTC. Check 2–3 sources, quote lower, keep your cut. Customers never see these — they only see Aurelia.
+
 Questions? The project files, including this guide, are all in the `aurelia/` folder — you can re-read this anytime.
