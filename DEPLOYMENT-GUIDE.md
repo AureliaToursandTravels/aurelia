@@ -294,7 +294,7 @@ To activate earning:
    - Cleartrip Affiliate — search "Cleartrip affiliate program"
    - Skyscanner Partners — search "Skyscanner partners programme"
 2. Each program gives you a **tracking ID** (a code/parameter for your links).
-3. Open `public/js/affiliates.js` and **paste each ID** into the matching `trackingId: ''` field (the file has clear `<!-- -->` comments).
+3. Open `public/js/partners-v5.js` and **paste each ID** into the matching `trackingId: ''` field (the file has clear `<!-- -->` comments).
 4. Push the change to GitHub (`git add . && git commit -m "affiliate ids" && git push`) — Render auto-redeploys.
 5. The homepage buttons now carry your tracking — every booking through them pays you. Check each program's dashboard for earnings.
 
