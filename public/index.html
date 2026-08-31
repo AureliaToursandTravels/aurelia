@@ -945,8 +945,7 @@
       pairs.forEach(([id, fn]) => { const good = fn(); setError(id, !good); if (!good) ok = false; });
       return ok;
     }
-    ['origin','destination','departureDate','userName','userEmail','userPhone'].forEach(id =>
-      $(id).addEventListener('blur', validate));
+    // Errors only show when the visitor tries to submit (no nagging while typing)
 
     // ---------- Toast ----------
     let toastTimer;
@@ -1112,8 +1111,8 @@
     updateSummary();
   </script>
 
-  <script src="/js/affiliates.js"></script>
-  <script src="/js/assistant.js"></script>
-  <script src="/js/i18n.js"></script>
+  <script src="/js/affiliates.js?v=3"></script>
+  <script src="/js/assistant.js?v=3"></script>
+  <script src="/js/i18n.js?v=3"></script>
 </body>
 </html>

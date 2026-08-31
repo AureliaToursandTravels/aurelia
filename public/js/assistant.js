@@ -65,6 +65,12 @@
       .as-typing i { width: 7px; height: 7px; border-radius: 50%; background: #94a3b8; animation: asB 1s infinite; }
       .as-typing i:nth-child(2){ animation-delay:.2s } .as-typing i:nth-child(3){ animation-delay:.4s }
       @keyframes asB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+      @media (max-width: 480px) {
+        #asChat { width: 94vw; max-height: 64vh; bottom: 14px; left: 3vw; }
+        #asMsg { max-height: 36vh; }
+        #asFab { width: 54px; height: 54px; font-size: 22px; bottom: 18px; left: 18px; }
+        #asBadge { font-size: 11px; bottom: 80px; left: 20px; padding: 6px 11px; }
+      }
     </style>
     <button id="asFab" title="Chat with Aurelia Concierge">🤖</button>
     <div id="asBadge">✨ Need the cheapest fare? Chat with me</div>
