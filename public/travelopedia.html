@@ -36,14 +36,29 @@
           <span class="text-[9px] tracking-[0.25em] text-slate-300 block uppercase">Tours &amp; Travels</span>
         </span>
       </a>
-      <div class="flex items-center gap-4 text-sm font-medium">
+      <div class="hidden md:flex items-center gap-4 text-sm font-medium">
         <a href="/" class="hover:text-brandGold transition">Home</a>
         <a href="/travelopedia.html" class="hover:text-brandGold transition text-brandGold font-bold">📚 Travelopedia</a>
         <a href="/guides.html" class="hover:text-brandGold transition">🛂 Passport &amp; Visa</a>
         <a href="/contact.html" class="hover:text-brandGold transition">Contact</a>
       </div>
+      <button id="menuBtn" class="md:hidden text-2xl text-brandGold px-2" aria-label="Menu">☰</button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-brandNavy border-t border-brandGold/20 px-4 py-3 space-y-1 text-sm font-medium">
+      <a href="/" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">🏠 Home</a>
+      <a href="/travelopedia.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">📚 Travelopedia</a>
+      <a href="/guides.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">🛂 Passport &amp; Visa</a>
+      <a href="/contact.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">📞 Contact</a>
     </div>
   </nav>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    }
+  </script>
 
   <!-- Hero -->
   <header class="relative overflow-hidden bg-gradient-to-br from-brandNavy via-brandBlue to-[#123a7a] text-white pt-14 pb-20 px-4 text-center">

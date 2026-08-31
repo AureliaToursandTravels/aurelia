@@ -147,17 +147,15 @@
       });
     });
     localStorage.setItem(LANG_KEY, lang);
-    const sw = document.getElementById('langSwitcher');
-    if (sw) sw.value = lang;
+    document.querySelectorAll('#langSwitcher, #langSwitcherM').forEach(sw => { sw.value = lang; });
     document.documentElement.lang = lang === 'en' ? 'en' : lang;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const sw = document.getElementById('langSwitcher');
-    if (sw) {
+    document.querySelectorAll('#langSwitcher, #langSwitcherM').forEach(sw => {
       sw.value = localStorage.getItem(LANG_KEY) || 'en';
       sw.addEventListener('change', () => apply(sw.value));
-    }
+    });
     apply(localStorage.getItem(LANG_KEY) || 'en');
   });
 })();

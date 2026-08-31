@@ -68,13 +68,31 @@
           <span class="text-[9px] tracking-[0.25em] text-slate-300 block uppercase">Tours &amp; Travels</span>
         </span>
       </a>
-      <div class="flex items-center gap-4 text-sm font-medium">
+      <div class="hidden md:flex items-center gap-4 text-sm font-medium">
         <a href="/" class="hover:text-brandGold transition">Home</a>
         <a href="/travelopedia.html" class="hover:text-brandGold transition">📚 Travelopedia</a>
         <a href="/how-it-works.html" class="hover:text-brandGold transition">How It Works</a>
         <a href="/guides.html" class="hover:text-brandGold transition text-brandGold font-bold">🛂 Passport &amp; Visa</a>
         <a href="/contact.html" class="hover:text-brandGold transition">Contact</a>
         <select id="langSwitcher" class="bg-white/10 border border-white/20 text-white text-xs rounded-lg px-2 py-1.5 outline-none cursor-pointer">
+          <option value="en" class="text-slate-800">English</option>
+          <option value="hi" class="text-slate-800">हिंदी</option>
+          <option value="bn" class="text-slate-800">বাংলা</option>
+          <option value="or" class="text-slate-800">ଓଡ଼ିଆ</option>
+        </select>
+      </div>
+      <button id="menuBtn" class="md:hidden text-2xl text-brandGold px-2" aria-label="Menu">☰</button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-brandNavy border-t border-brandGold/20 px-4 py-3 space-y-1 text-sm font-medium">
+      <a href="/" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">🏠 Home</a>
+      <a href="/travelopedia.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">📚 Travelopedia</a>
+      <a href="/how-it-works.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">❓ How It Works</a>
+      <a href="/guides.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">🛂 Passport &amp; Visa</a>
+      <a href="/contact.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">📞 Contact</a>
+      <div class="flex items-center gap-2 pt-2 px-2">
+        <span class="text-xs text-slate-400">भाषा:</span>
+        <select id="langSwitcherM" class="bg-white/10 border border-white/20 text-white text-xs rounded-lg px-2 py-1.5 outline-none">
           <option value="en" class="text-slate-800">English</option>
           <option value="hi" class="text-slate-800">हिंदी</option>
           <option value="bn" class="text-slate-800">বাংলা</option>
@@ -1147,6 +1165,14 @@
       updateSummary();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // ---------- Mobile menu toggle ----------
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    }
 
     // ---------- Smart city autocomplete ----------
     const CITIES = [
