@@ -84,7 +84,7 @@
       <div id="asHeader">
         <div id="asAvatar">🤖</div>
         <div><div style="font-weight:800;font-size:15px;letter-spacing:.3px" class="as-name">Aurelia Concierge</div>
-        <div style="font-size:11px;opacity:.85;display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 6px #22c55e"></span>Online · finds the best fares</div></div>
+        <div style="font-size:11px;opacity:.85;display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 6px #22c55e"></span>Bot online 24/7 · Experts daily 11am–3pm</div></div>
         <button id="asClose" title="Close">✕</button>
       </div>
       <div id="asMsg"></div>
@@ -258,7 +258,7 @@
     }).then(r => r.json()).then(data => {
       typing.remove();
       if (data.success) {
-        addBot(`🎉 Request sent successfully!\n\nOur team is now hunting the cheapest fare for ${F.origin} → ${F.destination}. You'll get your quote on WhatsApp within ~30 minutes.\n\nNeed a human right now?`, ['💬 Chat on WhatsApp']);
+        addBot(`🎉 Request sent successfully!\n\nOur team is now hunting the cheapest fare for ${F.origin} → ${F.destination}. Our experts are online every day 11am–3pm — your quote will arrive then.\n\nNeed a human right now?`, ['💬 Chat on WhatsApp']);
         step = 'done';
       } else {
         addBot('⚠️ Something went wrong. Please try again or message us on WhatsApp.', ['💬 Chat on WhatsApp', '↩️ Try again']);

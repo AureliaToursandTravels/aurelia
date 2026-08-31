@@ -243,7 +243,7 @@ app.post('/api/submit', submitLimiter, async (req, res) => {
             <p style="margin: 0; font-size: 14px; color: #64748b;">${travelType.toUpperCase()} · ${origin} → ${destination}</p>
             <p style="margin: 4px 0 0 0; font-size: 16px; font-weight: bold; color: #0b2b5c;">${new Date(departureDate).toDateString()}${returnDate ? ' → ' + new Date(returnDate).toDateString() : ''} · ${passengers} passenger(s) · ${travelClass}</p>
           </div>
-          <p>Our travel experts are finding the best rate for you right now. We'll contact you on <strong>${userPhone}</strong> (${contactMethod || 'your preferred method'}) within <strong>30 minutes</strong> during working hours.</p>
+          <p>Our travel experts are finding the best rate for you. We'll contact you on <strong>${userPhone}</strong> (${contactMethod || 'your preferred method'}) during our expert hours — <strong>every day, 11am to 3pm</strong>.</p>
           <p>📞 Need us urgently? WhatsApp: <strong>+91 9323003681</strong> | <strong>+91 9011383313</strong></p>
           <p style="font-size: 12px; color: #94a3b8; margin-top: 24px;">This is an automatic confirmation from Aurelia Tours &amp; Travels.</p>
         </div>
