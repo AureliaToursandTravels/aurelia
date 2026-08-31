@@ -22,9 +22,15 @@
                   display: flex; align-items: center; gap: 11px; position: relative; }
       #asHeader::after { content:''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
                          background: linear-gradient(90deg,#f9a826,#fcd34d,#d97706); }
-      #asAvatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg,#f9a826,#d97706);
-                  display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
-                  box-shadow: 0 0 0 3px rgba(249,168,38,.35); }
+      #asAvatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg,#f9a826,#d97706);
+                  display: flex; align-items: center; justify-content: center; font-size: 21px; flex-shrink: 0;
+                  box-shadow: 0 0 0 3px rgba(249,168,38,.4), 0 0 18px rgba(249,168,38,.5);
+                  position: relative; overflow: hidden; }
+      #asAvatar::after { content:''; position: absolute; top: -60%; left: -60%; width: 60%; height: 200%;
+                         background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+                         transform: rotate(25deg); animation: asShine 3.2s infinite; }
+      @keyframes asShine { 0% { left: -70%; } 55% { left: 130%; } 100% { left: 130%; } }
+      .as-name { background: linear-gradient(90deg,#f9a826,#fcd34d,#f59e0b); -webkit-background-clip: text; background-clip: text; color: transparent; }
       #asClose { margin-left: auto; background: rgba(255,255,255,.12); border: 0; color: #fff; width: 26px; height: 26px;
                  border-radius: 50%; font-size: 13px; cursor: pointer; line-height: 1; }
       #asClose:hover { background: rgba(255,255,255,.25); }
@@ -77,13 +83,15 @@
     <div id="asChat" class="closed">
       <div id="asHeader">
         <div id="asAvatar">🤖</div>
-        <div><div style="font-weight:800;font-size:14.5px;letter-spacing:.2px">Aurelia Concierge</div>
-        <div style="font-size:11px;opacity:.85;display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block"></span>Online · finds the best fares</div></div>
+        <div><div style="font-weight:800;font-size:15px;letter-spacing:.3px" class="as-name">Aurelia Concierge</div>
+        <div style="font-size:11px;opacity:.85;display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 6px #22c55e"></span>Online · finds the best fares</div></div>
         <button id="asClose" title="Close">✕</button>
       </div>
       <div id="asMsg"></div>
       <div id="asChips" class="as-chips"></div>
       <div id="asInputRow"><input id="asInput" placeholder="Type your answer..." autocomplete="off"><button id="asSend">➤</button></div>
+      <div style="background:linear-gradient(90deg,#f9a826,#d97706);height:3px"></div>
+      <div style="text-align:center;font-size:9.5px;color:#94a3b8;padding:4px 8px;background:#fff">✦ Aurelia Concierge — cheapest fares, human touch</div>
     </div>`;
   document.body.appendChild(root);
 
