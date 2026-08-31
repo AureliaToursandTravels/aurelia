@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare Flight & Train Prices | Aurelia Tours & Travels</title>
+  <meta name="description" content="Compare flights and trains across all major booking platforms in one tap — and get an expert best-price quote from Aurelia Tours & Travels.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aurelia-tours-travels.onrender.com/compare.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brandBlue: '#0b2b5c', brandGold: '#f9a826', brandNavy: '#071a3a' } } }
+    }
+  </script>
+  <style>
+    .gold-text { background: linear-gradient(90deg, #f9a826 0%, #fcd34d 45%, #d97706 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    html,body{overflow-x:hidden;}
+    .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -18px rgba(11,43,92,.4); }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- Nav -->
+  <nav class="bg-brandNavy text-white shadow-lg sticky top-0 z-40 border-b border-brandGold/20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center gap-3">
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <span class="text-2xl">✈️🚆</span>
+        <span>
+          <span class="text-xl font-extrabold gold-text block leading-tight">Aurelia</span>
+          <span class="text-[9px] tracking-[0.25em] text-slate-300 block uppercase">Tours &amp; Travels</span>
+        </span>
+      </a>
+      <div class="hidden md:flex items-center gap-4 text-sm font-medium">
+        <a href="/" class="hover:text-brandGold transition">Home</a>
+        <a href="/compare.html" class="hover:text-brandGold transition text-brandGold font-bold">⚖️ Compare</a>
+        <a href="/travelopedia.html" class="hover:text-brandGold transition">📚 Travelopedia</a>
+        <a href="/guides.html" class="hover:text-brandGold transition">🛂 Passport &amp; Visa</a>
+        <a href="/contact.html" class="hover:text-brandGold transition">Contact</a>
+      </div>
+      <button id="menuBtn" class="md:hidden text-2xl text-brandGold px-2" aria-label="Menu">☰</button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-brandNavy border-t border-brandGold/20 px-4 py-3 space-y-1 text-sm font-medium">
+      <a href="/" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">🏠 Home</a>
+      <a href="/compare.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">⚖️ Compare Prices</a>
+      <a href="/travelopedia.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">📚 Travelopedia</a>
+      <a href="/guides.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">🛂 Passport &amp; Visa</a>
+      <a href="/contact.html" class="block py-2 px-2 rounded hover:bg-white/5 hover:text-brandGold">📞 Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="relative overflow-hidden bg-gradient-to-br from-brandNavy via-brandBlue to-[#123a7a] text-white pt-12 pb-16 px-4 text-center">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[640px] h-[640px] bg-brandGold/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto relative">
+      <p class="text-brandGold text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase mb-3">One route · Every platform</p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight mb-4">Compare &amp; Get the <span class="gold-text">Best Price</span></h1>
+      <p class="text-slate-200 text-base sm:text-lg">Search your route once — open it on every major booking site in one tap, then let our experts beat them all.</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 w-full flex-grow -mt-10 mb-16">
+
+    <!-- Search card -->
+    <div class="bg-white border border-[#e6d9b8] rounded-2xl shadow-2xl p-6">
+      <div class="flex justify-center mb-5">
+        <div class="bg-slate-100 p-1 rounded-lg flex gap-1 w-full max-w-xs">
+          <button type="button" id="tabFlight" class="flex-1 py-2 rounded-md font-semibold text-sm bg-brandBlue text-white shadow transition">✈️ Flight</button>
+          <button type="button" id="tabTrain" class="flex-1 py-2 rounded-md font-semibold text-sm text-slate-600 hover:text-slate-900 transition">🚆 Train</button>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">From</label>
+          <input type="text" id="origin" list="cityList" placeholder="e.g. Mumbai (BOM)" class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">To</label>
+          <input type="text" id="destination" list="cityList" placeholder="e.g. Delhi (DEL)" class="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+        </div>
+      </div>
+      <div class="mt-4">
+        <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Travel date</label>
+        <input type="date" id="date" class="w-full sm:w-72 px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-brandBlue outline-none">
+      </div>
+      <datalist id="cityList">
+        <option value="Mumbai (BOM)"></option><option value="Delhi (DEL)"></option><option value="Bengaluru (BLR)"></option>
+        <option value="Chennai (MAA)"></option><option value="Kolkata (CCU)"></option><option value="Hyderabad (HYD)"></option>
+        <option value="Pune (PNQ)"></option><option value="Ahmedabad (AMD)"></option><option value="Goa (GOI)"></option>
+        <option value="Jaipur (JAI)"></option><option value="Lucknow (LKO)"></option><option value="Patna (PAT)"></option>
+        <option value="Guwahati (GAU)"></option><option value="Bhubaneswar (BBI)"></option><option value="Varanasi (VNS)"></option>
+        <option value="Chandigarh (IXC)"></option><option value="Dubai (DXB)"></option><option value="Doha (DOH)"></option>
+        <option value="Jeddah (JED)"></option><option value="London (LHR)"></option><option value="Singapore (SIN)"></option>
+        <option value="Bangkok (BKK)"></option><option value="New York (JFK)"></option><option value="Karachi (KHI)"></option>
+      </datalist>
+      <button id="searchBtn" class="mt-5 w-full bg-gradient-to-r from-brandGold via-amber-400 to-amber-600 text-slate-900 font-bold py-3 rounded-xl hover:brightness-95 transition shadow-lg text-lg">
+        ⚖️ Compare Prices Now
+      </button>
+    </div>
+
+    <!-- Results -->
+    <div id="results" class="hidden mt-8">
+      <div class="bg-white border border-[#e6d9b8] rounded-2xl p-6 shadow-xl">
+        <h2 class="text-xl font-extrabold text-brandBlue mb-1" id="resTitle">Results</h2>
+        <p class="text-xs text-slate-400 mb-5">Tap a platform — it opens with your route ready to compare. Prices shown there are live. Then let our experts beat them 👇</p>
+        <div id="platformGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"></div>
+      </div>
+
+      <!-- Aurelia best-price card -->
+      <div class="mt-5 bg-gradient-to-r from-brandBlue to-brandNavy text-white rounded-2xl p-6 shadow-xl border border-brandGold/20">
+        <h3 class="text-lg font-extrabold mb-1">🏆 Want us to BEAT them all?</h3>
+        <p class="text-sm text-slate-300 mb-4">Our experts search exclusive channels and get you the lowest price — usually cheaper than every platform above. Free, no advance payment.</p>
+        <button id="expertBtn" class="bg-gradient-to-r from-brandGold to-amber-500 text-slate-900 font-bold px-6 py-3 rounded-xl hover:brightness-95 transition shadow-lg">🔥 Get my expert best-price</button>
+        <p id="expertMsg" class="hidden mt-3 text-sm text-green-300 font-semibold">✅ Sent! Our team will contact you on WhatsApp within 30 minutes.</p>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-extrabold text-brandBlue text-center mb-6">How it works</h2>
+      <div class="grid sm:grid-cols-3 gap-4 text-center text-sm">
+        <div class="bg-white border border-[#e6d9b8] rounded-2xl p-5">
+          <p class="text-3xl mb-2">1️⃣</p><p class="font-bold">Enter your route</p>
+          <p class="text-slate-500 mt-1">From, to and date — takes 10 seconds.</p>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-2xl p-5">
+          <p class="text-3xl mb-2">2️⃣</p><p class="font-bold">Compare all platforms</p>
+          <p class="text-slate-500 mt-1">One tap opens every major site with your search.</p>
+        </div>
+        <div class="bg-white border border-[#e6d9b8] rounded-2xl p-5">
+          <p class="text-3xl mb-2">3️⃣</p><p class="font-bold">Let us beat them</p>
+          <p class="text-slate-500 mt-1">Our experts find you a lower price — guaranteed effort.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="mt-8 bg-amber-50 border border-amber-300 rounded-xl p-4 text-sm text-amber-800">
+      ⚠️ Prices shown on partner sites are live &amp; vary every minute. Aurelia Tours &amp; Travels compares market options and finds the cheapest available fare for your exact dates.
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brandNavy text-slate-400 py-6 text-center text-xs border-t border-brandGold/20">
+    <div class="max-w-6xl mx-auto px-4 space-y-1">
+      <p>&copy; 2026 Aurelia Tours &amp; Travels. Contact: +91 9323003681 | workkhalid1509@gmail.com</p>
+      <p><a href="/" class="hover:text-brandGold transition">Home</a> · <a href="/compare.html" class="hover:text-brandGold transition">Compare</a> · <a href="/travelopedia.html" class="hover:text-brandGold transition">Travelopedia</a> · <a href="/guides.html" class="hover:text-brandGold transition">Passport &amp; Visa</a> · <a href="/contact.html" class="hover:text-brandGold transition">Contact</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const tabFlight = $('tabFlight'), tabTrain = $('tabTrain');
+    let type = 'flight';
+    tabFlight.addEventListener('click', () => { type = 'flight'; tabFlight.className = 'flex-1 py-2 rounded-md font-semibold text-sm bg-brandBlue text-white shadow transition'; tabTrain.className = 'flex-1 py-2 rounded-md font-semibold text-sm text-slate-600 hover:text-slate-900 transition'; });
+    tabTrain.addEventListener('click', () => { type = 'train'; tabTrain.className = 'flex-1 py-2 rounded-md font-semibold text-sm bg-brandBlue text-white shadow transition'; tabFlight.className = 'flex-1 py-2 rounded-md font-semibold text-sm text-slate-600 hover:text-slate-900 transition'; });
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    }
+
+    function codeOf(city) {
+      const m = String(city || '').match(/\(([A-Za-z]{3})\)/);
+      return m ? m[1].toUpperCase() : '';
+    }
+    function buildLinks(o, d, date) {
+      const oc = codeOf(o), dc = codeOf(d);
+      const ymd = (date || '').replace(/-/g, '');
+      const ddmmyy = ymd.length === 8 ? ymd.slice(6, 8) + ymd.slice(4, 6) + ymd.slice(2, 4) : '';
+      if (type === 'flight') {
+        const arr = [
+          ['🔵 Google Flights', `https://www.google.com/travel/flights?q=flights+from+${oc}+to+${dc}`],
+          ['🔍 Skyscanner', `https://www.skyscanner.co.in/transport/flights/${oc.toLowerCase()}/${dc.toLowerCase()}/${ddmmyy}/`],
+          ['🟠 MakeMyTrip', 'https://www.makemytrip.com/flights/'],
+          ['🔷 Goibibo', 'https://www.goibibo.com/flights/'],
+          ['🛫 Yatra', 'https://www.yatra.com/flights'],
+          ['🟢 EaseMyTrip', 'https://www.easemytrip.com/flights'],
+          ['💠 Ixigo', 'https://www.ixigo.com/flights'],
+          ['🧭 Cleartrip', 'https://www.cleartrip.com/flights'],
+          ['🌏 Trip.com', 'https://www.trip.com/flights/'],
+          ['🩵 Kayak', 'https://www.kayak.co.in/flights']
+        ];
+        return arr;
+      }
+      return [
+        ['🛤️ IRCTC', 'https://www.irctc.co.in'],
+        ['🚆 RailYatri', 'https://www.railyatri.in'],
+        ['🎟️ ConfirmTkt', 'https://www.confirmtkt.com'],
+        ['💠 Ixigo Trains', 'https://www.ixigo.com/trains']
+      ];
+    }
+
+    $('searchBtn').addEventListener('click', () => {
+      const o = $('origin').value.trim(), d = $('destination').value.trim(), dt = $('date').value;
+      if (!o || !d || !dt) { alert('Please fill From, To and the date.'); return; }
+      $('resTitle').textContent = `⚖️ ${o} → ${d} · ${dt} · ${type === 'flight' ? '✈️ Flights' : '🚆 Trains'}`;
+      const grid = $('platformGrid');
+      grid.innerHTML = buildLinks(o, d, dt).map(([name, url]) => `
+        <a href="${url}" target="_blank" rel="noopener" class="card-hover bg-gradient-to-b from-slate-50 to-white border-2 border-[#e6d9b8] rounded-xl p-4 text-center hover:border-brandGold transition block">
+          <span class="block font-bold text-sm">${name}</span>
+          <span class="block text-[10px] text-slate-400 mt-1">Open &amp; compare →</span>
+        </a>`).join('');
+      $('results').classList.remove('hidden');
+      $('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    $('expertBtn').addEventListener('click', async () => {
+      const payload = {
+        travelType: type,
+        tripType: 'oneway',
+        origin: $('origin').value.trim(),
+        destination: $('destination').value.trim(),
+        departureDate: $('date').value,
+        passengers: 1,
+        travelClass: type === 'flight' ? 'Economy' : 'Sleeper (SL)',
+        userName: 'Compare User',
+        userEmail: 'compare@aurelia.local',
+        userPhone: '+91 0000000000',
+        contactMethod: 'WhatsApp',
+        hearAbout: 'Compare page'
+      };
+      try {
+        const res = await fetch('/api/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        const data = await res.json();
+        if (data.success) {
+          $('expertMsg').classList.remove('hidden');
+          $('expertBtn').disabled = true;
+        } else {
+          alert('Please enter your contact details on the home form for a full quote.');
+          window.location.href = '/';
+        }
+      } catch (e) { alert('Connection issue — please try again.'); }
+    });
+  </script>
+  <script src="/js/i18n.js?v=6"></script>
+</body>
+</html>
